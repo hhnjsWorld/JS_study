@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name='password'></input>
+    <input type="text" name='confirm_password'></input>
+    <br>
+    <span name='msg'></span>
+    <script>
+        function query(name) {
+            //字符串和变量生成
+            return document.querySelector(`[name='${name}']`)
+        }
+        console.log(query('password'));
+
+        let inputs = document.querySelectorAll("[name='password'],[name='confirm_password']");
+        // console.log(inputs);
+        //...展开运算符变成数组
+        [...inputs].map(item => {
+            item.addEventListener('keyup', function() {
+                let msg = ''
+                    // console.log(33);
+                if (query('password').value !== query('confirm_password').value ||
+                    query('password').length < 5
+                ) {
+                    msg = "两次密码不一致或密码长度小于5位"
+                }
+                query('msg').innerHTML = msg
+            })
+        })
+
+        // let a = 1,
+        //     b = 1;
+        // if (a == 1 && b !== 2) {
+        //     console.log(('表达式成立'));
+        // }
+    </script>
+</body>
+
+</html>

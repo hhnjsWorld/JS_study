@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        border: 1px solid red;
+    }
+</style>
+
+<body>
+    <!-- 做验证 -->
+    <input type="text" validate rule='max:12,min:3'>
+    <input type="text" validate rule='max:3,isNumber'>
+
+</body>
+
+<script>
+    'user strict'
+    class Validate {
+        max(value, len) {
+            return value.length <= len;
+        }
+        min(value, len) {
+            return value.length >= len;
+        }
+        isNumber(value) {
+            return /^\d+$/.test(value)
+        }
+    }
+    let validate = new Validate();
+
+    /* 验证功能 的功能测试 */
+    // console.log(validate.max('123', 3)); //false
+    // console.log(validate.min('123', 2)); //true
+    // console.log(validate.isNumber('123s', 5)); //不能为字母
+
+    /* 代理工厂 */
+    function ProxyFactory(target) {
+        return new Proxy(target, {
+            get(target, key) {
+                return target[key];
+            },
+            set(target, key, el) {
+                // console.log(el); //表单元素
+                // console.log(key);
+                const rule = el.getAttribute('rule');
+                // console.log(rule);
+                /* 按逗号拆分 */
+                let state = rule.split(',').every(rule => {
+                    // console.log(rule);
+                    const info = rule.split(':');
+                    // console.log(info);
+
+                    // console.log(el.value, info[1]);// 验证大小的长度
+                    return validate[info[0]](el.value, info[1])
+                        // return true //设置一个返回值为true
+                })
+                console.log(state); // 查看状态
+
+                //给元素加上样式可以这么写
+                el.classList[state ? 'remove' : "add"]('error') //没有错的话没有红
+                return true
+            }
+
+        });
+    }
+    const proxy = ProxyFactory(document.querySelectorAll('[validate]'));
+    // console.log(proxy);
+    proxy.forEach((item, i) => {
+        // console.log(item);
+        item.addEventListener('keyup', function() {
+            proxy[i] = this;
+        })
+    })
+</script>
+
+</html>

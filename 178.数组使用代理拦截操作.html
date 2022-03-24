@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const web = [{
+        title: '前端可视化',
+        api: '110'
+    }, {
+        title: '后端删库跑人',
+        api: '120'
+    }, {
+        title: '大数据学习路线',
+        api: '130'
+    }];
+    let proxy = new Proxy(web, {
+        get(array, key) {
+            // console.log(key);
+            const title = array[key].title;
+            console.log(title);
+            const len = 2;
+            /* 这个做的是数字长 缩略用...来表示 */
+            array[key].title = title.length > len ? title.substr(0, len) + '.'.repeat(3) : title
+            return array[key]
+        }
+    })
+    console.log( /* 代理定位到数组的某个对象 */ proxy[2]);
+    console.log(JSON.stringify(proxy[1], null, 2));
+</script>
+
+</html>

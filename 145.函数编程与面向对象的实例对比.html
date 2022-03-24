@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let name = "胡海宁";
+    /* 比方说我由N个错综复杂的方法 ,我想简单简洁点 这时候我就开始用面向对象*/
+    // function add() {
+
+    // }
+
+    // function sum() {
+
+    // }
+    // let obj = {}
+
+    // function total() {
+
+    // }
+
+    // function total() {
+
+    // }
+
+    // let name = "胡海宁";
+    // let grade = [{
+    //     name: "js",
+    //     score: 100,
+    // }, {
+    //     name: "docker",
+    //     score: 66,
+    // }, ];
+
+    // function average(grade, name) {
+    //     let total = grade.reduce((t, points) => t + points.score, 0);
+    //     // console.log()
+    //     return `${total / grade.length} 是胡海宁的平均值`
+    // }
+    // console.log(average(grade, name));
+
+    /* 变成对象的操作 */
+    let user = {
+        name: "傻逼",
+        grade: [{
+            name: "java",
+            score: 100,
+        }, {
+            name: "python",
+            score: 99,
+        }, ],
+        /* 函数服务于对象 这叫方法 */
+        // average(grade, name)
+        average: function() {
+            let total = this.grade.reduce((t, points) => t + points.score, 0);
+            // console.log()
+            return `${total / this.grade.length} 是${this.name}的平均值`;
+        },
+    };
+    console.log(user.average());
+</script>
+
+</html>

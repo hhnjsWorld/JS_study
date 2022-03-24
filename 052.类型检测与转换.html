@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style></style>
+
+<body>
+    <div>宋</div>
+    <div>宇杭</div>
+    <script>
+        let str = {
+            build1: [1, 3, 4],
+            build2: "2",
+        };
+        //转字符串 分割 替换 拼接
+        console.log(str.build1.toString().split("3").join("999"));
+        strA = str.build1.toString().split(",").join("-");
+        //转字符串
+        let hhn = String([1, 3, 4]);
+        console.log(typeof hhn);
+        console.log(hhn);
+
+        let array = [1, 2, 3, 4, 5].toString();
+        console.log(array);
+        //本地网址+连接使用
+        console.log(location.href + "?id=" + strA);
+
+
+
+
+        //Array.from方法好用
+        let hhnhhn = {
+            0: "宋",
+            1: "宇杭",
+            length: 2,
+        };
+        // console.log(typeof hhnhhn);
+        console.log(hhnhhn[0] + hhnhhn[1]);
+        //这个写法 直接对象转数组
+        console.log(Array.from(hhnhhn).toString().split(",").join(""));
+
+        //DOM节点数组操作
+        const divs = document.querySelectorAll("div");
+        console.log(Array.from(divs, function(item) {
+            // console.log(item.innerHTML);//打印看得出组成部分
+            item.style.backgroundColor = 'red'
+            return item
+        }));
+    </script>
+</body>
+
+</html>

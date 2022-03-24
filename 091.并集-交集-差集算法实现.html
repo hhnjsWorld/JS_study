@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let hhnA = new Set([1, 2, 3, 4, 5]);
+    let hhnB = new Set([9, 8, 7, 6, 5]);
+    /* 并集关系 */
+    // console.log(new Set([...hhnA, ...hhnB]));
+
+    console.log(
+        new Set(
+            /*判断数组里有没有共同的元素*/
+            [...hhnB].filter(function(item) {
+                /* has作为判断是否包含   !是排除我们共有的元素  */
+                return !hhnA.has(item);
+            })
+        )
+    );
+    /* Set()本质就是去重 */
+</script>
+
+</html>

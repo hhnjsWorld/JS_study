@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 展开语法实质性的就是收和放 */
+    let hhn = [1, 2, 3];
+    console.log(hhn);
+    /* 和上面一样的 */
+    let [a, b, c] = [...hhn];
+    console.log(a, b, c);
+    /* 分离首位操作 */
+    let [one, ...shou] = [1, 2, 3, 4, 5];
+    /* 合体做法! */
+    console.log([...[one], ...shou]);
+
+    /* ...点语法的 */
+    function sum(...args) {
+        console.log(args);
+        return args.reduce((a, b) => a + b);
+    }
+    console.log(sum(1, 2, 3, 4));
+
+    /* 折扣算法 */
+    /* 展开语法永远是作为形参最后面去摆放 */
+    /* 在分析几波就学成了 */
+    function sum(discount = 0, ...price) {
+        console.log(price);
+        let total = price.reduce((a, b) => a + b);
+        // return total
+        return Math.round(total * (1 - discount));
+    }
+    console.log(sum(0.2, ...[0, 199, 2900, 877]));
+</script>
+
+</html>

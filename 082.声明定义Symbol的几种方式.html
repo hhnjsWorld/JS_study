@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Symbol是生产唯一的数据 */
+        let hhn = Symbol("我是唯一的");
+        let hhnis = Symbol("网址是hhn.com");
+        /* 不能当普通对象来使用 */
+        // let hhns = Symbol();
+        // console.log(typeof hhn);
+        // hhn.name = "胡海宁";
+        // console.log(hhn);
+
+        /* description是提取Symbol的描述 */
+        console.log(hhn.description);
+        let hhna = Symbol.for("1hhnhhn1");
+        let hhnb = Symbol.for("2hhnhhn2");
+        console.log(hhna);
+        console.log(hhnb);
+        /* 判断Symbol打上的标识是否一样 */
+        /* 判断布尔 */
+        console.log(hhna == hhnb);
+        /* keyFor全局性是 对Symbol.for唯一的认证 Symbol不可定义它 */
+        let hhnc = Symbol('3hhnhhn3')
+        console.log(Symbol.keyFor(hhna));
+        /* 这时对hhnc的话就是undefined */
+        console.log(Symbol.keyFor(hhnc));
+    </script>
+</body>
+
+</html>

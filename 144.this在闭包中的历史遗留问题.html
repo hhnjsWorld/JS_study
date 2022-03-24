@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let hhn = {
+        user: "胡海宁",
+        admin: "12345",
+        human: function name(users) {
+            users = 'persons'
+            console.log(users);
+            console.log(this.user);
+        },
+        get: function() {
+            /* 这个this是指调用函数的对象 */
+            return this.admin;
+        },
+    };
+    console.log(hhn.human());
+    console.log(hhn.get());
+
+
+    console.log('-----------------------');
+
+
+    let hhncom = {
+        hostA: '刘德华',
+        hostB: '张学友',
+        i: '我',
+        obtain: function() {
+
+            let u = '你';
+            let i = '我';
+
+            // console.log(this);
+            /* 闭包里this指向要么在上级作用域改变this的名称改变指针 要么使用箭头函数 */
+            /* 箭头函数就不会造成这种问题就是指向window的问题*/
+
+            /* 对象里面函数里的函数function函数的话指向window */
+            // return function() {
+            //         /*  */
+            //         console.log(u);
+            //         console.log(this);
+            //         return this.hostA
+            //     }
+            /* 对象里面函数里的函数箭头函数的话指向最外层对象 */
+            return () => {
+                /*  */
+                console.log(i);
+                console.log(this);
+                return this.hostB
+            }
+        }
+
+    }
+    let a = hhncom.obtain();
+    console.log(a());
+    console.log();
+</script>
+
+</html>

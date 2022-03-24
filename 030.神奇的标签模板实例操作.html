@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    * {
+        list-style: none;
+    }
+    
+    span {
+        color: red;
+    }
+</style>
+
+<body>
+    <script>
+        // let hhn = "hhn.com";
+        // let hhnhhn = "hhnhhn.com";
+        // // console.log(`在线码农的一个网站${hhn},第二个完整干旱${hhnhhn}`);
+        // console.log(tag `${hhn}`);
+        // //展开运算符...
+        // function tag(strings, ...vars) {
+        //     console.log(vars);
+        //     console.log(strings);
+        // }
+
+        let hd = [{
+            title: "我要好好学习",
+            id: "好好one",
+        }, {
+            title: "你要好好吃饭",
+            id: "好好two",
+        }, {
+            title: "她要好好睡觉",
+            id: "好好three",
+        }, ];
+
+        function list() {
+            return `<ul>
+                  ${hd
+                    .map(
+                      (item) => links`<li>
+                      标题:${item.title},
+                      序号:${item.id}
+                      </li>`
+                    )
+                    .join("\n")}
+                  </ul>`;
+      }
+      //...去展开 数组里所有项目
+      //第一项是汇总,我在扩展运算符让strings接一下
+      function links(strings, ...vars) {
+          console.log(strings);
+        //   console.log(vars);
+        return strings
+          .map((str, 挨个对应) => {
+            //   console.log(str);
+            return (
+              str +
+              //replace('旧的',`新的`) 意指替换的意思 
+              (vars[挨个对应] ? vars[挨个对应].replace("好好", `<span>突破</span>`) : "")
+            );
+          })
+          .join("");
+      }
+      document.body.innerHTML = list();
+    </script>
+</body>
+
+</html>

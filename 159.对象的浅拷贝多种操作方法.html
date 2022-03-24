@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 就拿值的类型来说 浅拷贝就是拿人家手短嘛 b改变a的同时 a也变了 */
+    let a = 2;
+    let b = a;
+    console.log(b);
+    console.log(a);
+    /* 对象的浅拷贝和基本类型的差不多就是 覆盖性质的 */
+    let hhn = {
+        name: "胡海宁",
+        score: 100,
+    };
+    /* 给空间 */
+    let man = hhn;
+    /* 修改了 */
+    man.name = "我是对象类型浅拷贝覆盖性质的";
+    console.log(man);
+    console.log(hhn);
+
+    let mans = {
+        name: hhn.name,
+    };
+    console.log(mans); //我变了
+
+    let human = mans; //关键就是在于给空间 值就能变
+    console.log(man);
+    // console.log(hhn);
+    console.log(human); //这里内存地址还是上面的"我是对象类型浅拷贝覆盖性质的"
+    let news = (human.name = "我也会变");
+    console.log(human); //这里的话内存地址变了呀
+    console.log(news);
+    // console.log(hhn);
+    console.log([human]);
+    /* 开辟空间 给空间 独享空间才会变 原来的是不会被改变的 */
+    console.log(hhn);
+
+    /* 内存地址1 */
+    let memoryAddressOne = {
+        hostA: "192.168.0.1",
+        hostB: "192.168.0.2",
+    };
+
+    console.log("----↓浅拷贝↓----");
+    /* 浅拷贝流程 */
+    /* 如果涉及到多个对象合并的话用 Object.assign()浅拷贝 */
+    let memoryAddressTwo = Object.assign({}, memoryAddressOne);
+    console.log(memoryAddressTwo);
+    memoryAddressTwo.hostA = "Object.assign()浅拷贝替换"; //这里替换了一个属性
+
+    memoryAddressTwo.hostB = "Object.assign()里的替换如上"; //这里替换了一个属性
+
+    memoryAddressTwo.name = "Object.assign()里的添加"; //这里添加了一个属性
+
+    console.log(memoryAddressOne);
+
+    /* 展开语法浅拷贝 */
+    /* 只是单纯复制对象的话展开语法 */
+    let memoryAddressThree = {...memoryAddressOne
+    };
+    console.log(memoryAddressOne);
+    memoryAddressThree.name = "展开语法浅拷贝"; //这里添加了一个属性
+    console.log(memoryAddressThree);
+
+
+    // console.log(Object.keys(memoryAddressOne));
+    // let that = this
+    // Object.entries(memoryAddressOne).map(function(val, key) {
+    //     // console.log(key);
+    //     console.log([val], key);
+    //     /* 装填地址 */
+    //     // memoryAddressOne['hostC'] = '192.168.0.3' //这个生效
+    //     // console.log(memoryAddressOne);
+    // });
+
+    /* 内存地址2 */
+    let memoryAddressFour = {};
+
+    for (const key in memoryAddressOne) {
+        console.log(key);
+
+        memoryAddressFour[key] = memoryAddressOne[key] + "for in 做了啥事儿";
+    }
+    /* 给空对象插值的话 空对象 赋予了值 原对象不变 */
+    console.log(memoryAddressOne); //这是不变的
+    console.log(memoryAddressFour);
+
+    /* 下面这样做 看的就很清晰 */
+    // for (const [item, value] of Object.entries(memoryAddressOne)) {
+    //     // console.log(item, value);
+    //     memoryAddressOne[item, value] = memoryAddressTwo[item, value]
+    // }
+    // console.log(memoryAddressTwo); //遍历了 我在里面创造空间再看 原来不变的
+
+    // console.log(Object.keys(...[memoryAddressOne]));
+</script>
+
+</html>

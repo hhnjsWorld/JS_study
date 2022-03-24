@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+</body>
+<script>
+    // let set = new WeakSet();
+    // set.add(['我的', '你的', '他的'])
+    // console.log(set);
+    /* 根据内存地址删除 */
+    let nodes = new WeakSet();
+    // document.querySelectorAll("div").forEach((item) => {
+    //     nodes.add(item);
+    // });
+    let delDiv = document.querySelectorAll("div");
+    /* 删除一个元素 */
+    delDiv.forEach((delItem) => {
+        nodes.add(delItem)
+    });
+    nodes.delete(delDiv[0])
+    console.log(nodes.has(delDiv[1])); //true
+    console.log(nodes.has(delDiv[0])); //false
+    console.log(nodes);
+</script>
+
+</html>

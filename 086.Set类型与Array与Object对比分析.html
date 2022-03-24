@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let arr = [1, 2, 3, 5];
+    // console.log(arr);
+    /* Set里面不能有重复的值 */
+    let set = new Set();
+    /* 值类型有一个 字符串类型有两个 */
+    set.add("1");
+    set.add(1);
+    set.add(1);
+    console.log(set);
+
+    let setObj = {
+        /* 肯定强转字符串了 */
+        1: 'hhn.com',
+        "1": 'hhn.com'
+    };
+    setObj[1] = "胡海宁";
+    console.log(setObj);
+
+
+
+    let hhnA = {
+            /* 对象变成属性加上[] */
+            /* 对象变成属性加上[] */
+            /* 对象变成属性加上[] ,这里实则是不能变属性 变成字符串*/
+            [setObj]: '胡海宁来了'
+        }
+        /* 取对象里面的属性的话这样取 */
+    console.log(hhnA[setObj.toString()] + '哈哈');
+</script>
+
+</html>

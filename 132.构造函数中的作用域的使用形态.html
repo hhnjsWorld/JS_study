@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 构造函数的形式 */
+    function hn() {
+        let n = 1;
+        console.log(this);
+        this.sum = function() {
+            console.log(++n);
+        };
+    }
+    var name = "window";
+
+    function Hhn() {
+        let m = 10;
+
+        function total() {
+            // console.log(this);
+            console.log(`%c${++m}`, "color:red;font-size:20px");
+            let that = this;
+
+            function redu() {
+                console.log(that);
+                console.log(`%c${--m}`, "color:blue;font-size:20px");
+                console.log(`%c${--m}`, "color:blue;font-size:20px");
+                console.log(`%c${--m}`, "color:blue;font-size:20px");
+            }
+            redu();
+            // redu()
+        }
+        return {
+            total: total,
+        };
+    }
+
+    let a = new hn();
+    console.log(a);
+    a.sum(); //2
+    a.sum(); //3
+    a.sum(); //4
+
+    let b = new Hhn();
+    console.log(b);
+    b.total();
+    // b.redu();
+    b.total();
+    // b.total();
+    // b.redu();
+    // b.redu();
+
+    function xx() {
+        let zz = 1;
+
+        this.sub = function() {
+            console.log(zz++);
+        };
+        return {
+            /* 重造名 把sub return出去 */
+            suz: this.sub,
+        };
+    }
+    let yy = new xx();
+    yy.suz();
+    yy.suz();
+    let uu = new xx();
+    uu.suz();
+    uu.suz();
+    /* 
+        核心:函数的内存 它 是为每个对象保留一份，他们都有一个自己的内存空间o
+        */
+</script>
+
+</html>

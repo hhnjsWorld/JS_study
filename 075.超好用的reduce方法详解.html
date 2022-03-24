@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 22, 333, 333, 55555, 333, 333, 333];
+
+        /* 找出某个元素到底有多少个 */
+        function arrayCount(array, item) {
+            // console.log(arrayCount(arr, 333));
+            return array.reduce(function(total, cur) {
+                total += item == cur ? 1 : 0;
+                return total;
+            }, 0);
+        }
+        /* 我要找的元素 */
+        console.log(arrayCount(arr, 333));
+
+        /* 上一次返回的结果 值 索引  原数组 */
+
+        /* 叠罗汉性质 */
+        // arr.reduce(function(pre, value, index, arr) {
+        //     console.log(pre, value);
+        //     /* 我把99传上去了 */
+        //     return 99
+        // })
+        // arr.reduce(function(pre, value, index, arr) {
+        //     console.warn(pre, value);
+        //     /* 我把99传上去了 */
+        //     return 99
+        // }, 0)
+        // arr.reduce(function(pre, value, index, arr) {
+        //     console.warn(pre, value);
+        //     /* 我把99传上去了 */
+        //     return 99
+        // }, 1)
+
+        let arrays = [-1, 3, 5, 7, -9];
+        /* 否弃了循环判断 ,reduce更优 */
+        /* 计算一个数组中最大的是哪个元素 */
+        function arrayMax(array) {
+            /* pre第一个值 cur第二个值 后面的以此类推 */
+            /* pre第一个值 cur第二个值 后面的以此类推 */
+            /* pre第一个值 cur第二个值 后面的以此类推 */
+            return array.reduce(function(pre, cur) {
+                /* 三元判断最大*/
+                return pre > cur ? pre : cur;
+            });
+        }
+        console.log(arrayMax(arrays));
+    </script>
+</body>
+
+</html>

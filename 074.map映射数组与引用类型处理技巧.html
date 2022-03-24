@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let persons = [{
+            any: "帅帅的大男孩",
+            sex: "男",
+        }, {
+            any: "美丽的眼神",
+            sex: "女",
+        }, {
+            any: "雄壮的肌肉",
+            sex: "男",
+        }, ];
+        let arr = ["hhn", "hhn.com"];
+        /*  值,索引,原数组 */
+        /*  值,索引,原数组 */
+        /*  值,索引,原数组 */
+        let arrs = arr.map(function(value, index, arr) {
+            /* 改变它*/
+            value = `胡海宁=>${value}`
+            return value
+        });
+        console.log(arr);
+        /* 值类型的话：从原数组改变的话 变成一个新数组 原数组不改变 */
+        console.log(arrs);
+
+        /* 改变的话不返回原数组的话直接这样操作 用的还是原来的空间 改变即改变  */
+        // persons.map(function(value) {
+        //     value.click = 100;
+        // });
+        // console.log(persons);
+
+        /* 开辟一个空间的话 */
+        // let hhnNew = persons.map(function(value) {
+        //     return Object.assign({
+        //             click: 100,
+        //         },
+        //         value
+        //     );
+        // });
+
+        /*这是返回一个新的数据 */
+        let hhnNew = persons.map(function(value) {
+            return {
+                any: value.any,
+                sex: value.sex,
+                click: 100,
+            };
+        });
+        // 那Object.assign深拷贝还是浅拷贝呢?
+        // 答案是第一级属性深拷贝，第一级以下的级别属性浅拷贝 。
+        /* 两个不重样的 */
+        console.table(hhnNew);
+        console.table(persons);
+        /* map就是对远数组进行一个二次操作 返回一个新数组 根据实际情况 引用类型不返回也可以 */
+    </script>
+</body>
+
+</html>

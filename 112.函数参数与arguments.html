@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="cli">胡海宁</button>
+</body>
+<script>
+    /* 第一种写法 */
+    // document.getElementById("cli").addEventListener("click", function() {
+    //     alert(this.innerHTML)
+    // });
+    /* 第二种写法 */
+    /* 具名函数传递给下面 */
+    function event() {
+        alert(this.innerHTML);
+    }
+    document.getElementById("cli").addEventListener("click", event);
+
+    // function hhn(a) {
+    //     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(function(a) {
+    //         return a <= 3;
+    //     });
+
+    //     console.log(arr);
+    // }
+    // /* 跑起来 */
+    // hhn();
+    // console.log(hhn());
+
+    /* 一秒一个数直到1000 */
+    // var i = 0;
+
+    // function hn() {
+    //     console.log(++i);
+    // }
+    // setInterval(hn, 1000);
+
+    /* 求和操作 */
+
+    function sum(...args) {
+        // console.log(...args);
+        /* ...展开运算符的方式 */
+        /* 这个是最简约的加法运算 利用展开运算符 */
+        /* ...语法替代了arguments */
+        return [...args].reduce((a, b) => a + b)
+
+        /* arguments把数据集合一下打印 是一个数组队列 */
+        /*arguments顶替了形参的方法去接受   */
+        /* sum(a,b,c,d,e....)不可能这么接收的 */
+        // console.log(arguments);
+        // console.log(arguments.length);
+        // let total = 0;
+        // /*少于arguments.length的长度 */
+        // for (let i = 0; i < arguments.length; i++) {
+        //     /*  总计的写法就这么写 */
+        //     total += arguments[i];
+        // }
+        // return total;
+        // return [...arguments].reduce((a, b) => {
+        //     return a + b
+        // });
+    }
+
+
+    console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 19));
+</script>
+
+</html>

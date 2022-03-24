@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 如果避免像如下重复定义的情况话 */
+
+    // let hhn = {
+    //     name: "胡海宁",
+    //     show: function() {
+    //         console.log(this.name + `大神`);
+    //     },
+    // };
+
+    // let abc = {
+    //     name: "大哥大",
+    //     show: function() {
+    //         console.log(this.name + `大姐大`);
+    //     },
+    // };
+
+    /* 工厂函数构成 */
+    function info(name, age) {
+        return {
+            // data = {
+            name: name,
+            age: age,
+            // },
+            show: function() {
+                // console.log(this);
+                console.log(this.name + `名字`);
+            },
+            say: function() {
+                console.log(`${this.name}的年纪${this.age}`);
+            }
+        };
+    }
+
+    let hn = info("胡海宁", 25);
+    hn.say();
+    // console.log(hn);
+    let lisi = info("李四");
+    lisi.show();
+    // console.log(lisi);
+</script>
+
+</html>

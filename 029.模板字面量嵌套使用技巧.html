@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    div {
+        list-style: none;
+    }
+    
+    .lis {
+        padding: 10px;
+        border: 1px solid black;
+        /* border-bottom: none; */
+    }
+    
+    .lis:nth-child(odd) {
+        background: lightblue;
+    }
+</style>
+
+<body>
+
+    <script>
+        // let huhaining = 'hhn.com'
+        // str += "胡海宁"
+        // console.log(str);
+
+        // function myself() {
+        //     return '胡海宁.com';
+
+        // }
+        // let hhn = `www.${myself()}`
+        // console.log(hhn);
+
+        let hd = [{
+            title: "我要好好学习",
+        }, {
+            title: "你要好好吃饭",
+        }, {
+            title: "她要好好睡觉",
+        }, {
+            title: "谁要好好睡觉",
+        }, {
+            title: "我要好好睡觉",
+        }, ];
+
+        function list() {
+            /* 一下列举三种字面量 */
+            //     return `
+            // <ul>${hd.map((item) => item.title + "<br>")}</ul>
+            // `;
+
+            //     return `
+            // <ul>${hd.map((item) => "<li >" + item.title + "</li>").join("")}</ul>
+            // `;
+
+            //推荐这种
+            return `
+        <div>${hd.map((item) => `<div class='lis'>${item.title}</div>`).join("")}</div>
+        `;
+      }
+
+      document.body.innerHTML = list();
+    </script>
+</body>
+
+</html>

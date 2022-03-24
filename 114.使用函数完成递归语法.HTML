@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 不断的重复的做一件事情 套娃事件 */
+    /* 重复事情不定的时候用递归很合适 */
+
+    function recursion(num) {
+        // if (num == 1) {
+        //     return 1;
+        // }
+        // return num * recursion(num - 1);
+        /* 递归简写 */
+        return num == 1 ? 1 : num * recursion(--num);
+
+    }
+    /* 传一个数字 3*2*1 递进下去 */
+    console.log(recursion(5));
+</script>
+
+</html>

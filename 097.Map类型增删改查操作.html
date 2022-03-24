@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let obj = {
+        name: "胡海宁",
+    };
+    let map = new Map();
+
+    /* obj是undefined */
+    map.set(obj, "是帅哥");
+    /* 检测是否包含 */
+    console.log(map.has(obj));
+    console.log(map.delete(obj));
+    /*  删除了就为空了 */
+    console.log(map);
+    /* 这是全部清除 */
+    map.clear()
+    console.log(map);
+    // console.log(map.get(obj));
+</script>
+
+</html>

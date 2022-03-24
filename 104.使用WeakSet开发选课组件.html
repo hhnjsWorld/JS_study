@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .flex {
+            margin-left: 120px;
+            margin-top: -115px;
+            display: flex;
+            height: 40vh;
+            width: 30vw;
+            border: 1px solid grey;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        
+        ul {
+            /* display: flex; */
+            margin-left: 1%;
+            /* background-color: lightgreen; */
+            width: 6vw;
+            height: 14vh;
+            line-height: 30px;
+            white-space: nowrap;
+        }
+        
+        strong {
+            display: block;
+            border: 1px solid red;
+            /* flex: 1; */
+        }
+        
+        p {
+            display: block;
+            border: 1px solid red;
+            flex: 1;
+            background-color: lightgray;
+        }
+        
+        a {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><span>java</span><a href="javascript:;">+</a></li>
+        <li><span>php</span><a href="javascript:;">+</a></li>
+        <li><span>大师讲编程</span><a href="javascript:;">+</a></li>
+    </ul>
+    <div class="flex">
+        <strong id="count">共选了两门课</strong>
+        <p id="lists"></p>
+    </div>
+</body>
+<script>
+    /* class 取创建对象 */
+    class Lesson {
+        constructor() {
+            this.lis = document.querySelectorAll("ul>li");
+            // console.log(this.lis);
+            this.countElem = document.getElementById("count");
+            // console.log(this.countElem);
+            this.listElem = document.getElementById("lists");
+            // console.log(this.listElem);
+            this.map = new WeakMap();
+        }
+        run() {
+            this.lis.forEach((li) => {
+                li.querySelector("a").addEventListener("click", (event) => {
+                    // /* 以下的方法都能看见li */
+                    // console.log(li);
+                    // console.log(event.target.parentElement);
+                    /*普通函数function指向的是操作他的对象  箭头函数操作的是事件 */
+                    /* a的标签是这个event.target */
+                    const a = event.target;
+                    console.log(this);
+                    const state = li.getAttribute("select");
+                    if (state) {
+                        li.removeAttribute("select");
+                        this.map.delete(li);
+                        /* 别忘了 移除之后是加号 */
+                        a.innerHTML = "+";
+                        a.style.background = "green";
+                    } else {
+                        this.map.set(li);
+                        li.setAttribute("select", true);
+                        /* 别忘了 移除之后是减号 */
+                        a.innerHTML = "-";
+                        a.style.background = "red";
+                    }
+                    console.log(this.map);
+                });
+            });
+        }
+    }
+    /* new取调取使用 */
+    new Lesson().run();
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div>你XX</div>
+    <div>穷哈哈</div>
+</body>
+<script>
+    // let step = new WeakMap();
+    // // step.set('hhn', 'hhn.com')//这个是不容许的
+    // /* 和 WeakSet一样 WeakSet的值必须是一个对象那个 WeakMap的key必须是一个对象  */
+    // step.set([], 'hhn.com')
+    // console.log(step);
+    // let divs = document.querySelectorAll("div");
+    // let step = new WeakMap();
+    // // console.log(step);
+    // divs.forEach((item) => {
+    //     // console.log(item);
+    //     let wmpItem = step.set(item, item.innerHTML);
+    //     // console.log(typeof item.innerHTML);
+    //     // console.log([...item.innerHTML]);
+    //     // console.log(wmpItem);
+    //     console.log(wmpItem);
+    // });
+    // console.log(step);
+
+    let arr = [
+        [],
+        [],
+        [],
+
+    ];
+    let map = new WeakMap();
+    map.set(arr[0], "hhn.com");
+    map.set(arr[1], "hhnss.com");
+    map.set(arr[2], "hhnsss.com");
+    // console.log([map].length);
+    map.delete(arr[2]);
+    // console.log(map);
+    // map.set([], 'hahah')
+    // console.log(map.has(arr[1]));
+    // let may = map;
+    for (const value of[map]) {
+        console.log([value]);
+    }
+
+    let hhn = new Map([
+        ['name', '胡海宁大帅哥']
+    ])
+    console.log(hhn.size);
+    map.set(map, hhn)
+</script>
+
+</html>

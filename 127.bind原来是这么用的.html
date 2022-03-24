@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button>海宁</button>
+    <button>帅哥</button>
+</body>
+<script>
+    let buts = document.querySelectorAll("button").forEach(
+        function(ele) {
+            // console.log(this);
+            // console.log(ele);
+            ele.addEventListener("click", (event) => {
+                console.log(event.target);
+                document.write(this.url + this.pos + event.target.innerHTML)
+            });
+        }.bind({
+            url: "帅帅滴大男孩",
+            pos: '完美的身材'
+        })
+    );
+
+    /*总结：
+    
+    bind的特点不立刻执行 ，与
+    apply和call相比有两次传参的机会
+    */
+
+    // function(event) {
+    //     console.log(this);
+    //     document.write(this.url + event.target.innerHTML);
+    // }.bind({
+    //     url: "帅帅滴大男孩",
+    // })
+
+    //bind call
+    // function show(...arg) {
+    //     console.log(this.name);
+    //     console.log(arg);
+    // }
+    // show.apply({
+    //     name: "大帅哥",
+    // }, [1, 2]);
+
+    // /* bind的用法 */
+    // let func = show.bind({
+    //         name: "hhn",
+    //     },
+    //     ...[3, 4]
+    // )();
+    // console.log(func);
+
+    // let hh = function() {};
+    // let nn = hh;
+    // console.log(hh instanceof Object);
+
+    // function hhnhhn(x, y) {
+    //     console.log(x, y);
+    //     let total = this.z + x + y;
+    //     return;
+    //     console.log(total);
+    // }
+    // // hhnhhn()
+
+    // console.log(
+    //     hhnhhn.call({
+    //             z: 1,
+    //         },
+    //         2,
+    //         3
+    //     )
+    // );
+
+    // let binds = hhnhhn.bind({
+    //         z: 9,
+    //     },
+    //     1
+    // );
+    // binds([1, 2, 3]);
+</script>
+
+</html>

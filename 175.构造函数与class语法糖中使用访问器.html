@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'user strict';
+
+    /* 构造函数方法 */
+    function Users(name, age) {
+        // this.name = name;
+        // this.age = age;
+        /* 以上可以转化为私有属性 */
+        /* 这里浅讲一下Object.defineProperty */
+        let data = {
+                name: name,
+                age: age
+            }
+            /* 变私有 */
+        Object.defineProperties(this, {
+            name: {
+                get() {
+                    return data.name
+                },
+                set(value) {
+                    if (value.trim() == '' || value.length > 20) {
+                        throw new Error('用户名不合法')
+                    }
+                    data.name = value;
+                }
+            },
+            age: {
+                get() {
+                    return data.age
+                },
+                set(value) {
+                    data.age = value;
+                }
+            }
+        })
+    }
+    let cons = new Users('胡海宁', 27);
+    cons.name = "构造函数";
+    console.log(cons.name);
+
+
+    /* 使用class类的方法 */
+    /* 变私有量 */
+    /* 后续调数据调Symbol() */
+    const DATA = Symbol();
+
+    class User {
+        constructor(name, age) {
+            this[DATA] = {
+                name,
+                age
+            };
+        }
+        get name() {
+            return this[DATA].name
+        }
+        set name(value) {
+            if (value.trim() == '' || value.length > 20) {
+                throw new Error('用户名不合法')
+            }
+            this[DATA].name = value;
+        }
+        get age() {
+            return this[DATA].age
+        }
+        set age(value) {
+            if (value.trim() == '' || value.length > 20) {
+                throw new Error('用户名不合法')
+            }
+            this[DATA].age = value;
+        }
+    }
+    let kind = new User('胡海宁', 27);
+    kind.name = "Class类";
+    console.log(kind.name);
+</script>
+
+</html>

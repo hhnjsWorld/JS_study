@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let hhn = {};
+    // let name = "title";
+    // hhn[name] = "数学";
+    // /* 下面写法算出差不多 */
+    // console.log(hhn.title);
+    // console.log(hhn["title"]);
+
+    // let id = 0;
+    // let hhn = {};
+    // hhn[`id-${++id}`] = id;
+    // hhn[`id-${++id}`] = id;
+    // hhn[`id-${++id}`] = id;
+    // hhn[`id-${++id}`] = id;
+    // console.log(hhn);
+
+    const lessons = [{
+        title: "样式",
+        category: "css",
+    }, {
+        title: "闭包",
+        category: "js",
+    }, {
+        title: "springBoot",
+        category: "java",
+    }, ];
+    /* 把数组改为对象的形式 */
+    let res = lessons.reduce((obj, cur = {}, index) => {
+        // console.log(obj);
+        /* +1的话从1开始 */
+        /* 模板字符串的形式显示出来 */
+        obj[`${cur["category"]}-${index + 1}`] = cur;
+        /*  */
+        console.log(obj);
+        return obj;
+        /* 往里面押属性 */
+    }, {});
+    /* 处理JSON的 */
+    console.log(JSON.stringify(res, null, 2));
+
+
+    /* 把两个数据进行合并 */
+    let own = Object.assign({
+        x: 1,
+    }, {
+        y: 2,
+    });
+    console.log(own);
+
+
+    function upload(params) {
+        /* 传过来的形参 我想 替代 我内在的对象属性  */
+        let options = {
+                size: 19999
+            }
+            /* 传过来的形参 我想 替代 我内在的对象属性  */
+        options = Object.assign(options, params)
+            /* 根据运行后 options 被传过来的参所替代了 */
+        console.log(JSON.stringify(options, null, 2));
+    }
+    upload({
+        size: 8888,
+        jpg: '苹果'
+    })
+</script>
+
+</html>

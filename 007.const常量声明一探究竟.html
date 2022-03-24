@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const URL = "www.baidu.com";
+
+        // function show() {
+        //     const URL = "www.baidu.com";
+        //     console.log(URL);
+        // }
+        // show();
+
+        //用的是引用类型,划出一个空间,CONFIG.URL改的话改空间里面的数据,常量符号跟地址的引用没有发生改变 ,这种情况下是可以的
+        //基本量是不能改的,引用类型的对象和数组的话是可以改的
+        // const CONFIG = {};
+        // CONFIG.URL = "HHN";
+        // console.log(CONFIG);
+
+
+
+        const URL = "hhn.com";
+
+        {
+            const URL = "胡海宁.com";
+            console.log(URL);
+        }
+        console.log(URL);
+
+        //const声明的是常量,他的值是不可以改变的,但是如果是一个引用类型,
+        //只要内存地址不变,是没有关系的,
+        //如果是一个字符串改变成另一个字符串,重新开辟一个空间这个是不容许改的,
+        //不容许改也是有前提的,在同一个作用域当中是不可以改的,这个前提是在同一个作用域不能改
+    </script>
+</body>
+
+</html>

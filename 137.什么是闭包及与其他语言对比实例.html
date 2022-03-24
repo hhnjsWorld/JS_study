@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 闭包就是我们这个函数能够访问到其他函数中的数据 */
+    function hhn() {
+        let n = 1;
+        /* 使用闭包特性达到累加的效果 */
+        return function sum() {
+            console.log(++n);
+        };
+    }
+    let a = hhn();
+    a();
+    a();
+</script>
+
+</html>

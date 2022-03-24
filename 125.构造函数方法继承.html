@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 复用方法 一个方法多次被调用 就写一个方法 用call指向这个方法外部就行了 */
+    function Request() {
+        this.get = function(params) {
+            //id=1 & cat=js
+            console.log(params);
+
+            /* Object.keys 以键名id号取值 */
+            let okp = Object.keys(params);
+            console.log(okp);
+            //id=1 & cat=js 的格式
+
+            let arr = okp.map((k) => {
+                // console.log([k]);
+                console.log(`%c${k}`, 'color:red');
+                console.log(params[k]);
+                return `${[k]}=${params[k]}`
+            }).join("&");
+
+
+            console.log(arr);
+
+            let urlo = `https://api.hhn.com?${this.url}/${arr}`;
+            document.write(urlo + '<hr/>');
+        };
+    }
+    /* 一 */
+    let a = new Atricle();
+    a.get({
+        id: 1,
+        cat: "js",
+    })
+
+
+    function Atricle() {
+        console.log(this);
+        this.url = "atricle/lists";
+        Request.apply(this)
+    }
+
+    /* 二 */
+    let user = new User();
+    user.get({
+        id: 2,
+        role: "admin",
+    });
+
+    function User() {
+        console.log(this);
+        this.url = "user/lists";
+        Request.call(this)
+    }
+</script>
+
+</html>

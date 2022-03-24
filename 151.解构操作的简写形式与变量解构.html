@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 原数据↓ */
+    let web = {
+        name: "傻逼",
+        url: "shabi.com",
+    };
+    /* 目标变量↑ */
+    let {
+        name,
+        url
+    } = web;
+
+    /* 这也是一种结构的而写法 */
+    let arr = ["胡海宁", "hhn.com"];
+    let [a, b] = arr;
+    console.log((arr = a), (arr = b));
+
+    /* 最好的简写  */
+    let x = "我",
+        y = "你";
+
+    let xy = {
+        x,
+        y
+    };
+    console.log(xy);
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script src="./109.publicMethodA.js"></script>
+<script src="./109.publicMethodB.js"></script>
+<script>
+    /* 立即执行函数 */
+    // (function() {
+    //     console.log(333);
+    // })();
+    // hhnA();
+    /* 在单独的js中 都有私有的 作用域 空间化 以便于导出 */
+    publicMethodA.hhnA();
+    publicMethodA.hhnB();
+    publicMethodB.hhnA();
+    publicMethodB.hhnB();
+
+    // {
+    //     /* let作为块级作用域对作用域中生效打印的
+    //      */
+    //     let a = "胡海宁";
+    //     console.log(a);
+    // }
+    // // console.log(a);
+
+    showAjs.hhn1();
+    showAjs.hhn2();
+    showBjs.hhn1();
+    showBjs.hhn2();
+</script>
+
+</html>

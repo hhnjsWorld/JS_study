@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // let hhn = {};
+    // // console.dir(hhn.__proto__);
+    // hhn.show() //没有属性就报错
+
+
+    let proto = {
+        show() {
+            console.log('添加进了__proto__');
+        },
+        render() {
+            console.log('proto.render');
+        }
+    };
+    console.log(proto); //此时添加了show方法和父辈的方法
+    proto.__proto__.render = function() {
+            console.log('胡海宁');
+        }
+        // proto.render()
+</script>
+
+</html>

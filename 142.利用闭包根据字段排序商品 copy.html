@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let people = [{
+        name: "刘德华",
+        height: 158,
+        weight: 100,
+        price: 20000000,
+    }, {
+        name: "郭富城",
+        height: 168,
+        weight: 120,
+        price: 15000000,
+    }, {
+        name: "张学友",
+        height: 178,
+        weight: 140,
+        price: 10000000,
+    }, {
+        name: "黎明",
+        height: 188,
+        weight: 160,
+        price: 50000000,
+    }, ];
+    let hhn = people.sort(function(lowestPrice, highestPrice) {
+        return lowestPrice.price > highestPrice.price ? 1 : -1;
+    });
+    /* sort按照 */
+    console.table(hhn);
+
+    let high = people.sort(function(lowestPrice, highestPrice) {
+        return lowestPrice.height > highestPrice.height ? 1 : -1;
+    });
+
+    /* 从矮到高 */
+    console.table(high);
+
+    function order(field, type = 'jiang') {
+        return function(a, b) {
+            /* 降序 */
+            if (type == "jiang") return a[field] > b[field] ? 1 : -1;
+            /* 运算出 由身高比较 从高到矮的运算   sort还是用? 1 : -1这样的短路运算*/
+
+            /* 升序 不就是反过来嘛 -1 1反过来*/
+            return a[field] > b[field] ? -1 : 1;
+        };
+    }
+    /* 分析思路 不具体执行 */
+    // people = {
+    //     sort: function(callback) {
+    //         callback(a, b);
+    //     },
+    // };
+    let more = people.sort(order("height", /* 'jiang' */ 'sheng'));
+    console.table(more);
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 举例找个身价做最高的人 */
+        let persons = [{
+            name: "郭富城",
+            total: 10000,
+        }, {
+            name: "张学友",
+            total: 20000,
+        }, {
+            name: "刘德华",
+            total: 30000,
+        }, {
+            name: "黎明",
+            total: 40000,
+        }, ];
+        /* 形参模拟 */
+        /* 算最贵的那个身价 */
+        function maxTotal(most) {
+            return persons.reduce(function(pre, cur) {
+                return pre.total > cur.total ? pre : cur;
+            });
+        }
+        /* 形参得结论 */
+        console.log(maxTotal(persons));
+
+        /* 算出身价汇总 */
+        function maxSum(toOne) {
+            /* 预算总价的话，我的条件是啥 是cur第二次出现的往下一直加起来 */
+            return toOne.reduce(function(totals, cur) {
+                /* cur['total']这种写法是根据前面加上 下面这些索引对应的 */
+                return (totals += cur['total']);
+            }, 0);
+        }
+        console.log(maxSum(persons));
+    </script>
+</body>
+
+</html>

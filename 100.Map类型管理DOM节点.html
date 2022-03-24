@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div name="胡海宁">hhn.com</div>
+    <div name="开源">kaiyuan.com</div>
+</body>
+
+<script>
+    let map = new Map();
+    document.querySelectorAll("div").forEach((item) => {
+        /* 压到map当中 */
+        map.set(item, {
+            /* getAttribute获取属性的意思 */
+            content: item.getAttribute("name")
+        })
+    });
+    // console.log(map);
+    map.forEach((config, elem) => {
+        elem.addEventListener('click', () => {
+            alert(config.content)
+        })
+    })
+</script>
+
+</html>

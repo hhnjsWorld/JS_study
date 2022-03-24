@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 操作dom节点的方法 -->
+    <style>
+        .disable {
+            color: grey;
+        }
+    </style>
+    <ul>
+        <li>hhn1</li>
+        <li>hhn2</li>
+    </ul>
+</body>
+<script>
+    let lis = document.querySelectorAll("ul li");
+    lis.forEach(function(item) {
+        item.addEventListener('click', function() {
+            /* 注：toggle为切换，好像不起作用 隐藏或者显示 */
+            this.nameList.toggle('disable')
+        });
+    });
+
+    //温习
+    console.log(lis);
+    /* Array.from方式列出一个数组 */
+    console.log(Array.from(lis));
+    /* 展开语法的方式对象转数组 */
+    console.log([...lis]);
+
+    /* any翻译为标志 */
+    // let persons = [{
+    //     any: "帅帅的大男孩",
+    //     sex: "男",
+    // }, {
+    //     any: "美丽的眼神",
+    //     sex: "女",
+    // }, {
+    //     any: "雄壮的肌肉",
+    //     sex: "男",
+    // }, ];
+    // persons.forEach(function(item, index, persons) {
+    //     console.log(persons);
+    //     console.log(
+    //         `${Object.values(persons)[0].sex} + ${Object.values(persons)[0].any}`
+    //     );
+    //     /* substr截取 识别下标为0~2的 */
+    //     item.any = item.any.substr(0, 3);
+    // });
+    // /* 我打印出来是截取后的状态 */
+    // console.table(persons);
+</script>
+
+</html>

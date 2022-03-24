@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //new String new Boolean new Number
+        const array = new Array('hhn', "huhaining", 1, 2, 3, 4, 5, 6)
+        console.log(array.join("|"));
+        // console.log(array);
+
+
+        //引用类型 借你内存空间 让你装载
+        const array2 = [1, 2, 3, 4, ]
+        let hhn = array2
+            // console.log(typeof array);//数组是一个对象 引用类型
+        hhn[1] = 'huhaining.com'
+        console.log(hhn);
+        console.log(array2);
+
+        //值类型 完全的把内存空间复制一份
+        let a = 1;
+        let b = a;
+        a = 99
+        console.log(b);
+        console.log(a);
+
+        const hn = [1, 2, 3, 4]
+        console.log(hn);
+        // 打印出索引对应值
+        console.table(hn);
+    </script>
+
+</body>
+
+</html>

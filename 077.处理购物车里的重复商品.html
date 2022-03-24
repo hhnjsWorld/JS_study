@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 拿出＞20000的零食 */
+        let snack = [{
+            thing: "巧克力",
+            price: 10000,
+        }, {
+            thing: "雪糕",
+            price: 40000,
+        }, {
+            thing: "辣条",
+            price: 30000,
+        }, {
+            thing: "辣条",
+            price: 30000,
+        }, {
+            thing: "玻璃雪糕",
+            price: 30000,
+        }, ];
+
+        /*  过滤掉重复的商品  reduce + find方法*/
+        function filterThing(things) {
+            return things.reduce(function(arr, cur) {
+                let find = arr.find(function(v) {
+                    return v.thing == cur.thing
+                })
+                if (!find) arr.push(cur);
+                return arr
+            }, [])
+        }
+        console.table(filterThing(snack));
+
+
+
+        // reduce很强大 强记
+        /* 连串练习 取到大于20000的零食 并且只显示名字 而且去掉重复的零食的名字 */
+        function getNameByPrice(thing, price) {
+            return thing
+                .reduce(
+                    function(arr, cur) {
+                        if (cur.price > price) arr.push(cur);
+                        return arr;
+                    }, [] /* 定义一个数组 arr 不是pre了 不取第一个出现的索引 定义一个数组来押进去 */
+                )
+                .map((item) => {
+                    /* 我只需要名字 返回一个名字 */
+                    return item.thing;
+                    /* 我只要一个零食的名字 */
+                })
+                .reduce(
+                    (arr, cur) => {
+                        /* 如果数组里包含成双 第二次出现的等于0 */
+                        if (arr.includes(cur) === false) {
+                            /* 在[数组里只允许一个不重复的cur存在] */
+                            arr.push(cur);
+                        }
+                        return arr;
+                    }, [] /* 创建数组就是为了填鸭 */
+                );
+        }
+        console.table(getNameByPrice(snack, 20000));
+    </script>
+</body>
+
+</html>

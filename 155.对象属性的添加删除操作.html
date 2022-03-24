@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let hhn = {};
+    hhn.name = "胡海宁";
+    /* 注意:这里要写字符串,光写age的话 他试图找age的变量 */
+    hhn["age"] = 25;
+    console.log(hhn);
+    delete hhn.name;
+    console.log(hhn);
+    /* 判断当前对象上有没有属性 */
+    console.log(hhn.hasOwnProperty('age'));
+</script>
+
+</html>

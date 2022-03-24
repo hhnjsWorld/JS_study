@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 分解 */
+    let user = {
+        name: "胡海宁",
+        age: 20,
+    };
+    let {
+        name: n,
+        age: a
+    } = user;
+    console.log(user.name);
+
+    console.log("---------------");
+
+    function hhn() {
+        return {
+            name: "胡海宁",
+            age: 20,
+        };
+    }
+    let {
+        name,
+        age
+    } = hhn();
+    console.log(name, age);
+
+    /* 赋值 */
+    function own({
+        /* 形参 */
+        name,
+        age,
+    }) {
+        /* 打印 */
+        console.log(name, age);
+    }
+
+    own({
+        /* 实参 */
+        name: "大哥",
+        age: 66,
+    });
+    /* 获取随机数 */
+    let {
+        random
+    } = Math;
+    console.log(random());
+</script>
+
+</html>

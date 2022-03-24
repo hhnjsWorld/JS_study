@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /*  city指城市  home指家  kitchen指厨房  knives指刀具
+                                                                                                                                                                                                                                                                                                                                    wardrobe 指衣柜 clothing指衣服
+                                                                                                                                                                                                                                                                                                                                    */
+    let city = "城市";
+
+    function home() {
+        let self = this;
+        // console.log('家');
+        let bedroom = "卧室";
+        // return bedroom;
+        // console.log(clothing);//不可以
+
+        function wardrobe() {
+            console.log(self);
+            let clothing = "衣服";
+            console.log(bedroom);
+            console.log(clothing);
+        }
+        wardrobe();
+    }
+    /* 会产生多个内存地址 每一次调用会存一份 他们之间不会共享的 */
+    home();
+    home();
+    home();
+    home();
+    home();
+
+    // console.log(home());
+</script>
+
+</html>

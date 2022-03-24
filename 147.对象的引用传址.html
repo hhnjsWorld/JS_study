@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 这个对象是一个引用类型 */
+    let user = {};
+    let hhn = user;
+    user.name = '大哥';
+    console.log(hhn.name);
+
+    let owner = {
+        name: '胡海宁'
+    }
+
+    /* 此a是函数作用域里的 */
+    function show(a, x) {
+        console.log(a);
+        x = x + 100
+        console.log(x);
+    }
+
+    let dupe = show('美女', 1); //开辟了一个空间运行起来
+
+
+
+    /* 新手忌犯错误: 此a是全局作用域里的  */
+    let a = 1;
+    console.log(a + "此a是全局作用域里的");
+    show()
+
+
+    console.log("引用用类型的话↓");
+
+
+    let host = {
+        name: '海之蓝'
+    }
+
+    function xiu(wine) {
+        // wine.name = '海之蓝'
+        wine.price = 280;
+
+        console.log(wine);
+    }
+    // let wine = 180;
+    /* 等同于 我把一个 我把函数里面的属性 加到 对象地址里去了 所谓传址 */
+    xiu([host][0])
+</script>
+
+</html>

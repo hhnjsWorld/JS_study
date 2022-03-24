@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 以下是垃圾回收机制 */
+    // let hhn = {
+    //     name: '胡海宁'
+    // }
+    // step = hhn;
+    // hhn = null;
+    // step = null;
+    let hhn = {
+        name: "胡海宁",
+    };
+    step = hhn;
+    let map = new WeakMap();
+    /* 我追加上去了 一个'hhn.com' */
+    /*  hhn还是以自身为key的存在 */
+    map.set(hhn, "hhn.com");
+    hhn = null;
+    step = null;
+    /* 当这个key，外部的变量引用丢失的时候那我们这个WeakMap的key没有了 */
+    console.log(map);
+    /* 系统自检会检测到没有这个数据 自动丢弃了key */
+    setTimeout(() => {
+        console.log(map);
+    }, 2000);
+    /* WeakMap不用人工清理他，他自己会自动消失 不让用values keys
+     */
+</script>
+
+</html>

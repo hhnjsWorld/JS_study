@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let hhn = [1, 2, 3, 4];
+
+        // function filter(array, except) {
+        //     let newArray = [];
+        //     for (const value of array) {
+        //         if (except.includes(value) === false) {
+        //             newArray.push(value);
+        //         }
+        //     }
+        //     return newArray;
+        // }
+        // /* 去除2和3 */
+        // console.log(filter(hhn, [2, 3]));
+
+        let hhns = [4, 3, 2, 1];
+
+        function filter(array, callback) {
+            let newArrays = [];
+            for (const value of array) {
+                if (callback(value) === true) {
+                    newArrays.push(value);
+                }
+            }
+            return newArrays;
+        }
+        /* 去除比1.6平方大的数 */
+        console.log(
+            filter(hhns, value => {
+                return value > Math.pow(1.6, 2);
+            })
+        );
+    </script>
+</body>
+
+</html>

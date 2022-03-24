@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* constrictor原理剖析 */
+    function User(name) {
+        this.name = name;
+        /* this.show = function() {
+            console.log(this.name);
+
+        } */
+        // 将会被以下 代替
+    };
+    User.prototype = {
+        constructor: User,
+        show() {
+            console.log(User.prototype, this.name, 'constructor: User,');
+        }
+    }
+    let hhn = new User();
+
+    function createdByObject(obj, ...args) {
+        const constructor = Object.getPrototypeOf(obj).constructor
+        return new constructor(...args)
+    };
+    let hhnhhn = createdByObject(hhn, '胡海宁')
+    hhnhhn.show()
+</script>
+
+</html>

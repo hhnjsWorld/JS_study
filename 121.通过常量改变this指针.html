@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let Lesson = {
+        site: "数学",
+        lists: ["几何", "高数", "大数"],
+
+        show: function() {
+            /* this指向的是当前的对象 */
+            console.log(this);
+            console.log(this.site);
+            console.log(this.lists);
+            console.log(this.show);
+            /* 普通函数的this指向的是window */
+            /* 当前函数没有我可以向上找 */
+            const self = this;
+            return this.lists.map(
+                function(value) {
+                    // console.log(this); //这个this指向的是window
+                    console.log(self);
+                    /* 连接成结果 */
+                    /* 第一种方式  self改变this指向*/
+                    // return `${self.site}-${value}`
+                    /* 第二种方式 普通函数外部this向外指向 */
+                    // return `${this.site}-${value}`
+
+
+                    console.log(this);
+                },
+                /* ↑这个this访问的是本函数以外的一个对象 所以this指向了a */
+                /* {
+                                                 a: '胡海宁在学'
+                                             } */
+                /* 这个this指的是当前对象了 Lesson这个对象 */
+                this
+            );
+        },
+    };
+    console.table(Lesson.show());
+
+    /* 总结一下 
+  1.  const self = this;这种方式可以将作用域中的this传递到函数当中
+    
+2.有些特殊函数可以通过第二个参数改变this指针 比方说map函数外部去定义
+    
+    */
+</script>
+
+</html>

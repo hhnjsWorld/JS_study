@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let set = new Set("hhn", "hhn.com");
+    /* 也去重了 */
+    let set = new Set("hhnhhns");
+    /* 添加size看到了去重后的数量 */
+    console.log(set.size);
+    /* 判断是否包括某个元素  */
+    console.log(set.has('s'));
+    /* 列出一个条目查看里面的数据 */
+    console.log(set.values());
+    /* 清空里面的元素 */
+    console.log(set.clear());
+    /* 清空完了再看看里面几个去重后的元素 */
+    console.log(set.size);
+</script>
+
+</html>

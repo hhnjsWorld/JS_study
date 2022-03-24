@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 定义了销售额 和  年份 写一个数 */
+    function avg(total, year) {
+        /* 短路运算符 有值的话返回年 无值 的话返回1 */
+        year = year || 1;
+        console.log(year);
+        return Math.round(total / year);
+    }
+    /* 形参做到了 每年销售多少 */
+    console.log(avg(2000, 2));
+
+    /* 数组元素排序的例子 */
+    function sortArray(array, type = "升序") {
+        /* sor升降序的问题 */
+        return array.sort((a, b) => {
+            return type == "升序" ? a - b : b - a;
+        });
+    }
+    /* 要不然不是升序的话那就是降序 */
+    console.log(sortArray([100, 1999, 22, 88, 1111], "降序"));
+
+    /*discount打折的意思 dis再打折上折  */
+    function sum(money, discount = 0, dis = 0) {
+        return money * (1 - discount) * (1 - dis);
+    }
+    console.log(sum(9999, 0.1, 0.2).toFixed(2));
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 对象 */
+    let o = new Object();
+    o.name = "胡海宁";
+    console.log(o);
+
+    /* 数值 */
+    let n = new Number(1);
+    /* valueOf()是取值的意思 */
+    console.log(n.valueOf());
+    console.log(n + 3);
+
+    /* 字符串 */
+    let s = new String("abcd");
+    console.log(s.valueOf());
+    console.log(s.toLocaleUpperCase());
+
+    /* 布尔类型 */
+    let b = new Boolean(true);
+    console.log(b.toString());
+    console.log(b.valueOf());
+
+    /* 日期 */
+    let d = new Date();
+    console.log(d.valueOf());
+
+    /* 正则表达式 */
+    let r = new RegExp("\\d+");
+    console.log(r.valueOf());
+    console.log(r.test("abc")); //false
+    console.log(r.test(88)); //true
+
+    /* 在js当中的函数中 */
+    function hhn() {}
+    console.log(hhn.constructor);
+    let Hentai = new hhn.constructor(
+        "name",
+        `this.name = name;
+    this.show = function(){
+        console.log(this.name + '是能通过构造函数Function创建的方法')
+    }`
+    );
+    let hn = new Hentai("胡海宁");
+    hn.show()
+
+    /* 我们的数据 绝大多数是构造函数来实现的*/
+</script>
+
+</html>

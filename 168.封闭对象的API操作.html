@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /*封闭对象 无法对 对象的任何操作 */
+    "use strict";
+    const user = {
+        name: "胡海宁",
+        age: 25,
+    };
+    // Object.seal(user);
+    console.log(
+        JSON.stringify(Object.getOwnPropertyDescriptors(user), null, 2)
+    );
+    /* 证明不是已封闭 */
+    if (!Object.isSealed(user)) {
+        user.site = 'hhnhhn.com';
+        delete user.name;
+    }
+    console.log(user);
+</script>
+
+</html>

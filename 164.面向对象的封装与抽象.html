@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let hhn = {};
+    // hhn.name = '可爱';
+    // hhn.show = function(name) {
+    //     console.log(name);
+    // }
+    // console.log(hhn);
+
+    //抽象
+    function User(country, die) {
+        /* 封装属性 解构赋值 闭包特性 作用域特性*/
+        let data = {
+                count: country = "'日本鬼子'",
+                num: die
+            }
+            // this.count = country;
+            // this.num = die;
+        let info = function() {
+            return data.num >= 10 ? '小日本死的好' : '小日本死的少'
+        }
+
+
+        this.show = function() {
+                /* 利用闭包的特性 内部函数 访问外部函数里面的数据 */
+                console.log(data.count + info());
+            }
+            /* 方法单独拿来 去被调用单独封装  单独写方法*/
+
+    }
+    /* 承上启下 */
+    let hn = new User("日本", 200);
+    this.count = 'japan'
+        // console.log(hn.show());
+
+    // console.log(hn);
+    // hn.count = '小日本'
+
+    // hn.show()
+
+    // hn.info = function() {
+    //     return "我要更改自身方法";
+    // }
+    hn.show()
+</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+        #div0 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            background-color: aqua;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div0">11</div>
+    <script>
+        let div = document.getElementById("div0");
+
+        let colors = [
+            "#bce672",
+            "#3eede7",
+            "#f00056",
+            "#96ce54",
+            "#16a951",
+            "#955539",
+            // 'red',
+            // 'blue'
+        ];
+        let radius = [
+            "1%",
+            "99%",
+            // 'red',
+            // 'blue'
+        ];
+        div.addEventListener("click", function(i) {
+
+            // console.log(hue);
+            // console.log(i.target.innerHTML);
+            // console.log(colors);
+            // console.log(colors.length);
+            // console.log(i);
+            /* 根据一个颜色数组随机到我指定数组里面的随机颜色怎么做 */
+
+            let o = Math.floor(Math.random() * colors.length);
+            let r = Math.floor(Math.random() * radius.length);
+            console.log(o);
+            console.log(r);
+            i.target.style.backgroundColor = colors[o];
+            i.target.style.color = colors[o + 1];
+            i.target.style.borderRadius = radius[r];
+            i.target.style.fontFamily = '黑体';
+            console.log(colors[o]);
+            // console.log(i.target);
+
+
+
+        });
+    </script>
+</body>
+
+</html>

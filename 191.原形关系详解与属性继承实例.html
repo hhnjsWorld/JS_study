@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //String Number Object
+    let hhn = new Object();
+    hhn.name = '胡海宁';
+    // console.dir(hhn);
+    // console.log(hhn);
+    Object.prototype.show = function() {
+            console.log('hhnhhn.com');
+        }
+        // hhn.show()
+        // console.log(hhn.show());
+    console.log(Object.prototype == Function.prototype.__proto__);
+
+    function User() {
+
+    }
+    console.dir(User);
+    console.log(Function.__proto__.__proto__ == Function.prototype.__proto__);
+    console.dir(Object.prototype.__proto__); //null
+    // console.log([Object.__proto__]);
+
+    // console.log(Function.prototype == Object.prototype);
+
+    let qq = new User();
+    qq.show()
+    console.log(qq);
+    console.log(User.prototype.__proto__.__proto__ == qq.__proto__.__proto__.__proto__);
+    // console.log(new User());
+    console.log(User.show());
+</script>
+
+</html>

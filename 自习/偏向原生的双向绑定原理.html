@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" v-model='model'>
+    <input type="text" v-model='model'>
+    <input type="text" v-model='bind'>
+    <h2 type='text' v-bind='bind'>我的舞台</h2>
+</body>
+<script>
+    function View() {
+        let proxy = new Proxy({}, {
+            get(obj, property) {},
+            set(obj, property, value) {
+                // console.log(value);
+                document.querySelectorAll(`[v-model=${property}]`).forEach(item => {
+                        // console.log(item.value);
+                        item.value = value
+                    }),
+                    document.querySelectorAll(`[v-bind=${property}]`).forEach(item => {
+                        item.innerHTML = value
+                    })
+            },
+        });
+        this.init = function() {
+            const el = document.querySelectorAll('[v-model]');
+            // const one = document.querySelector('[v-bind]').addEventListener('keyup', function() {
+            //     proxy[this.getAttribute("v-bind")] = this.value
+            // })
+            el.forEach((item) => {
+                    item.addEventListener('keyup', function() {
+                        proxy[this.getAttribute("v-model")] = this.value
+                    })
+                }
+
+            )
+        }
+
+    }
+    new View().init()
+</script>
+
+</html>

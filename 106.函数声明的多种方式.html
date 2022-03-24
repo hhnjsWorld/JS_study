@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let str = new String("hhn.com");
+    // console.log(str);
+    // let str = "hhnhhn.com";
+    // console.log(str.substr(0, 1));
+
+    /* 这种很麻烦 */
+    // let func = new Function("title", "console.log(title)");
+    // func('我的吗');
+
+    /* 使用字面量的形势 */
+    // function hhn(title) {
+    //     console.log(title);
+    // }
+    /* 以后肯定遇到方法调用很多次 */
+    // hhn('手机')
+    // hhn('手机')
+    // hhn('手机')
+    // hhn('手机')
+    // hhn('手机')
+    /* 赋值语句 */
+    // let hhn = function(title) {
+    //     console.log(title);
+    // };
+    // hhn('胡海宁')
+
+
+
+    let user = {
+        name: null,
+        setUsername: function(name) {
+            this.name = name
+        },
+        /* 这样写为简写 */
+        // setUsername(name) {
+        //     this.name = name
+        // },
+        getUsername: function() {
+            return this.name
+        }
+    };
+    user.setUsername('胡海宁')
+    console.log(user.getUsername());
+</script>
+
+</html>

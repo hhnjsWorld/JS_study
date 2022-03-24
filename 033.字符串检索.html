@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const hhn = "huhaining";
+        // //找到第一个所在的n位置
+        // console.log(hhn.indexOf("h"));
+        // //h不在-1的话 就打印找到了
+        // if (hhn.indexOf("h") != -1) {
+        //     console.log("找到了");
+        // }
+        // //查找位置是否对位
+        // console.log(hhn.includes("h", 2));
+        // //最后一个n所在的位置
+        // console.log(hhn.lastIndexOf("n"));
+
+        const hhn = "Huhaining";
+        //使用我转小写的形式查找
+        console.log(hhn.toLowerCase().startsWith("h"));
+        const word = ["php", "css"];
+        const string = "我喜欢php和css";
+        const status = word.some(word => {
+
+            console.log(word);
+            return string.includes(word)
+        })
+        if (status) {
+            console.log('找到了关键词');
+        }
+    </script>
+</body>
+
+</html>

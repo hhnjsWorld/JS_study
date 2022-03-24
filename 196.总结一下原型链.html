@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'user strict'
+
+    let arr = [];
+    console.log(arr);
+    // arr.__proto__.__proto__ Array里边第二层才是Object
+    console.log(arr.__proto__.__proto__ == Object.prototype);
+
+    let obj = {};
+    /* 对比上面就是数组 和 对象的区别 */
+    console.log(obj);
+    console.log(obj.__proto__ == Object.prototype);
+
+
+    /* constructor: 对象  法, */
+    function Arr(name) {
+        this.name = 'constructor'
+    }
+
+    // console.log(Arr);
+    // console.log(arr.__proto__);
+    Arr.prototype = {
+            constructor: Arr,
+            show() {
+                console.log(this.name);
+            }
+
+        }
+        /* 涉及到constructor调用的话必须加 constructor:Arr,*/
+    const list = new Arr.prototype.constructor();
+    list.show()
+        // console.log(list);
+
+
+    function Ki() {
+        this.name = 'Ki=>fi=>ji';
+        // this.human = '超人';
+        this.show = function(name) {
+            name = this.name
+                // name = 'sds'
+            console.log(name);
+        }
+    }
+
+    let fi = new Ki()
+        // fi.show()
+        // console.log(fi);
+    Ki.prototype = {
+        constructor: Ki,
+        xiu() {
+            console.log(this.name);
+        }
+
+    }
+    let ji = new Ki.prototype.constructor()
+    ji.xiu()
+
+
+    /* 押属性法 */
+    let hhn = {
+        name: '胡海宁'
+    };
+    /* 这个就当做一个公用的方法库 传承下去给子级用 */
+    let father = {
+        name: 'god',
+        show() {
+            return '父级包含你1' + this.name
+        },
+        view() {
+            return '父级包含你2' + this.name
+        }
+    };
+    //hhn押进 father 
+    Object.setPrototypeOf(hhn, father);
+    console.log(hhn);
+    /* 然后再理解为父包含子 子可以调用父的方法 方法被继承了 */
+    console.log(hhn.show());
+    console.log(hhn.view());
+    console.log(father.show());
+</script>
+
+</html>

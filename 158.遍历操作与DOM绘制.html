@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let hhn = {
+        name: "胡海宁",
+        years: 1996,
+    };
+    /* 获取属性名 */
+    console.log(Object.keys(hhn));
+    /* 获取属性值 */
+    console.log(Object.values(hhn));
+    /* 属性名和属性值一起获取 */
+    console.log(Object.entries(hhn));
+    /* 实质就是读取二维数组 */
+    console.log(JSON.stringify(Object.entries(hhn), null, 2));
+
+    let own = {
+        name: "胡海宁",
+        years: 1996,
+    };
+
+    /* 让我们 复习下前面 */
+    for (const key in own) {
+        console.log(key);
+        /* 依赖key给值 */
+        console.log(own[key]);
+        // console.log(own['name']);
+        // console.log(own['years']);
+    }
+
+    /* forof就是操作迭代对象的 */
+    /* iterator 意指迭代器 */
+    for (const iterator of[own]) {
+        // console.log(own);
+        // 除非对象转了数组才能看的出来
+        console.log(iterator); //这个是不能被操作的
+    }
+
+    /* 你顶一个数组 这个时候 用forof'是可以的*/
+    let cli = [{
+        num: "one",
+        click: 1,
+    }, {
+        num: "two",
+        click: 2,
+    }, {
+        num: "three",
+        click: 3,
+    }, ];
+    for (const iterator of cli) {
+        console.log(iterator); //这个是可以的 他因为定义的是一个数组
+        console.log(`俺是keys%c${Object.keys(iterator)}`, "color:blue");
+        console.log(`俺是values%c${Object.values(iterator)}`, "color:red");
+        console.log(
+            `俺是entries%c${JSON.stringify(Object.entries(iterator), null, 0)}`,
+            "font-size:20px;color:green"
+        );
+        let cli2 = {
+            // 'num': '8', //覆盖属性
+            name: '美羊羊给你嘎了' // 添加属性
+        };
+        let cli3 = {
+            // 'num': '8', //覆盖属性
+            name: '喜羊羊给你嘎了' // 添加属性
+        };
+        /* 末尾替换法  */
+        console.log(Object.assign(...[cli2], ...[cli], ...[cli3]));
+        // (Object.entries(iterator))
+    }
+
+
+    let Ninjas = [{
+        name: '鸣人',
+        moves: '螺旋手里剑'
+    }, {
+        name: '佐助',
+        moves: '雷遁麒麟'
+    }, {
+        name: '小樱',
+        moves: '千本樱'
+    }, {
+        name: '小李',
+        moves: '里莲华'
+    }, {
+        name: '卡卡西',
+        moves: '千鸟'
+    }]
+
+    /* 很简单的 名字 内容 在 条目里 并按需提取出来 */
+    for (const [key, value] of Object.entries(Ninjas)) {
+        console.log([key]) //键值
+        console.log([value]) //内容
+        console.log([key, value]); //键值对应的内容
+        /*  */
+
+    }
+    let ul = document.createElement('ul');
+    for (const Ninja of Ninjas) {
+        let li = document.createElement('li');
+        /* 展示到页面 createElement可以不用创建元素 js创建 */
+        li.innerHTML = `忍者${Ninja.name},绝招是${Ninja.moves}`;
+        //把li再插到ul里面
+        ul.appendChild(li)
+    }
+    /* 最后在body里面展示 */
+    document.body.appendChild(ul)
+
+
+
+    /* 实际操作  用vue v-for都是这些演变过来的 库来写 */
+</script>
+
+</html>

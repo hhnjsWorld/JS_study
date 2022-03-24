@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let arr = [1, 2, 3];
+    /*  我能想到的方法是push*/
+    arr.push(4, 5, 6, 7);
+    console.log(arr);
+
+    /* 当然还有展开语法 我的理解是合并 复习前面的截取*/
+    let newArr = [
+        [...arr].splice(0, 3), [4, 5, 6, 7]
+    ];
+    /* 完美合并 */
+    console.log([...newArr[0], ...newArr[1]]);
+
+    /* 引用类型中对象的展开运算 */
+    let host = {
+        name: "胡海宁",
+        age: "25",
+    };
+    /* 当然了 我们在对象里面也是这样的  */
+    let hhn = {...host
+    };
+    console.log(hhn);
+
+    /* 函数中的展开*/
+    function upload(params) {
+        let config = {
+            type: "*.jpg,*.jpg",
+            size: 10000,
+        };
+        config = {...config,
+            ...params
+        };
+        console.log(config);
+    }
+    console.log(
+        upload({
+            /* 覆盖原有的size 别忘了这是形参进去的 */
+            size: 99,
+        })
+    );
+</script>
+
+</html>

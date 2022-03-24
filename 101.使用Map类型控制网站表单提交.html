@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- action 根据实现了条件跳转到某个页面 -->
+    <form action="http://doc.baidu.com" onsubmit="return post()">
+        接受协议：
+        <input type="checkbox" name="agreement" error="请接收接受协议" /> 我是学生：
+        <input type="checkbox" name="agreement" error="网站只对学生开放" />
+
+        <input type="submit" />
+    </form>
+</body>
+<script>
+    function post() {
+        let map = new Map();
+        let inputs = document.querySelectorAll("[error]");
+        // console.log(inputs);
+        //   return false;
+        inputs.forEach((item) => {
+            // console.log(item);
+            map.set(item, {
+                /* 遍历后转化为 查看内置状态 check√的话是true ×的话是false */
+                /* 理解为我再创建了一个变量 把已有的数据再追加过来 */
+                error: item.getAttribute("error"),
+                status: item.checked,
+            });
+        });
+        // console.log([...map]);
+        /* 后台返回的两个值的话我去转变成数组 然后再调取其中一个 */
+        return [...map].every(([error, config]) => {
+            /* 后台打印不是两个值吗 利用结构的方式查看一番 */
+            console.log(...map);
+            console.log(config);
+            /* 依据一个状态值 true/false 并且根据依据有无弹出框  */
+            config.status || alert(config.error);
+            return config.status;
+        });
+        // console.log(map);
+        /* 如果没有√ 的话返回false */
+        return false;
+    }
+</script>
+
+</html>

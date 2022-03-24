@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 为什么能访问show()的方法因为 儿子押进父亲的原型里面了 可以访问到该方法 */
+    let hhn = {
+        name: '儿子'
+    };
+    let parent = {
+        name: '父亲',
+        /* 利用父级打出来的代码 */
+        show: function() {
+            console.log('parent method' + this.name);
+        }
+    };
+    // console.log(hhn.__proto__ == parent.__proto__);
+
+
+    /* 设置原型压进去 Object.setPrototypeOf */
+    Object.setPrototypeOf(hhn, parent); //把hhn作为原型押进去了
+    console.log(hhn);
+    hhn.show()
+    parent.show()
+
+    /* 获取原型的父级取出来 Object.getPrototypeOf*/
+    console.log(Object.getPrototypeOf(hhn));
+</script>
+
+</html>

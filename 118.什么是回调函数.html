@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="hhn">胡海宁123</button>
+</body>
+<script>
+    // document.getElementById("hhn").addEventListener("click", function() {
+    //     // document.write('我是傻逼')
+    //     alert(this.innerHTML)
+    // });
+    /* map创造新数组 */
+    /* 方法一 欸个数加个数 */
+    let step = [1, 2, 3, 4];
+    let newStepA = step.map(function(value) {
+        return value += 10;
+    });
+    console.log(newStepA);
+    /* 方法二 */
+
+    let newStepB = step.map(function(value, index, array) {
+        /* 每个索引对应的数加上10 */
+        return array[index] += 10;
+    });
+    console.table(newStepB);
+    /* 总的而言 在其他函数里又调了一个函数 */
+</script>
+
+</html>

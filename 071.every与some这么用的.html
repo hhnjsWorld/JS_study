@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .classA {
+            color: red;
+        }
+    </style>
+    <input type="text" name="title" />
+    <span></span>
+</body>
+<script>
+    let keywords = ["javascript", "java"];
+    let title = document.querySelector("[name='title']");
+    title.addEventListener("keyup", function() {
+        const res = keywords.some((keyword) => {
+            /* 我输入就有值了 */
+
+            return this.value.indexOf(keyword) != -1;
+        });
+        /* 三元很好用 */
+        document.querySelector('span').innerHTML = res ? '' : "必须包含" + keywords.join(",") + "关键词儿";
+        // if (res === false) {
+        //     document.querySelector("span").innerHTML =
+        //         "必须包含" + keywords.join(",") + "关键词儿";
+        // } else if (res === true) {
+        //     document.querySelector("span").innerHTML = ``;
+        // }
+    });
+
+
+    /* 对数据进行统一判断 */
+    const user = [{
+        name: "李红",
+        js: "19.9",
+    }, {
+        name: "李白",
+        js: "30",
+    }, {
+        name: "李黑",
+        js: "40",
+    }, {
+        name: "李蓝",
+        js: "50",
+    }, ];
+
+    const res = user.every(function(item) {
+        return item.js >= 20;
+    });
+    console.log(res ? "全都及格" : `有的没及格是${user[0].name}`);
+    if (res) {
+        console.log('全部同学都及格了！');
+    } else {
+        console.log('有的没及格');
+    }
+    let arr = ["hhn", "hhn.com"];
+    /* 打印出来分别为字符串,索引,和内容 */
+    let status = arr.every(function( /* item */ value, index, arr) {
+        console.log( /*arr */ value);
+        /* 有一个返回的是ture则是ture,有一个返回的是false则为false */
+        return false;
+    });
+    console.log(status);
+
+    let arrs = ["hhns", "hhns.com"];
+    let resul = arrs.some(function(value, index, arr) {
+        console.log(value);
+        /* 返回真的话判断一个 */
+        /* 返回假的话全部判断 */
+        return /* true */ false
+    });
+    console.log(resul);
+</script>
+
+</html>

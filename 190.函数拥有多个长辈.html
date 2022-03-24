@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // let hhn = {};
+    // console.dir(hhn); //dir查看原型
+    //函数也是对象
+    function User() {
+
+    }
+    //let hhn = new User()
+    // User.apply
+    console.dir(User); //
+
+
+    /* 
+    拥有prototype和__proto__两种父级
+    
+    */
+    /* 函数用prototype 对象用__proto__ */
+
+    //prototype解析 prototype一般服务于函数实例化除了对象
+    User.prototype.show = function() {
+            console.log('prototype一般服务于函数实例化除了对象');
+        }
+        /* console.dir(User.prototype);
+        console.dir(User.__proto__); */
+
+    // User.prototype.show() //不成立
+    let prototypeShow = new User(); //new一下实例化对象
+    console.log(`%c${prototypeShow.show()}`, 'color:red', '↑1↓2');
+    let prototypeShow2 = new User(); //new一下实例化对象
+    prototypeShow2.show()
+
+
+    console.log('User.prototype是否等于prototypeShow.__proto__', User.prototype == prototypeShow.__proto__); //true
+
+
+    //__proto__解析  __proto__用来服务于函数对象的
+    User.__proto__.view = function() {
+        console.log('__proto__用来服务于函数对象的');
+    }
+    User.view()
+        // console.log([User.__proto__]);
+        // let PROTO = User.__proto__.view
+        // console.log(PROTO);
+</script>
+
+</html>

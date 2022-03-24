@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let hhn = ['huhaining', 1996];
+        // let [name, year] = arr;
+        // console.log(arr);
+        // console.log(name, year);
+
+        function get() {
+            return ["胡海宁", 1996];
+        }
+        let [name, year] = get();
+        console.log(name);
+
+        console.table(...
+            "hhn"); // h h n
+        const [...arr] = "huhaining";
+        console.table(arr);
+
+        const hn = ["j", "i", "n", "k", "e", "s", "i"];
+        const hns = hn.toString().split(',').join('');
+        console.log(hns);
+
+
+        function jie() {
+            const newHn = hn.toString().split(",").join("");
+            return newHn;
+        }
+        jie(1, 2, 3, 6);
+        console.log(jie());
+
+        let [, years] = ["胡海宁", 2021];
+        console.log(years);
+
+        let [names, ...args] = ["狐大仙", "hhn.com", 1996];
+        //除第一后面的值都是args里面的
+        console.log(args);
+        let a = ["hhn", ...args];
+        console.log(a);
+
+        let [birth = 1996, call] = [, "胡海宁"];
+        console.log(birth, call);
+
+        function hhns([all, ...only]) {
+            console.log(all, only[0], only[1].toString().split(',').join(' '), );
+
+        }
+        hhns(["形传实", 1996, "哈哈"]);
+    </script>
+</body>
+
+</html>

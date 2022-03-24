@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        table {
+            background-color: aqua;
+            text-align: center;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            border: 1px solid red;
+            height: 50px;
+            width: 200px;
+        }
+    </style>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        let lis = document.querySelectorAll("li");
+        console.log(lis.length);
+        for (const li of lis) {
+            li.addEventListener("click", function show(num) {
+                li.style.backgroundColor = "red";
+            });
+        }
+        // let hd = [{
+        //     title: "我要好好学习",
+        //     id: 1,
+        // }, {
+        //     title: "你要好好吃饭",
+        //     id: 2,
+        // }, {
+        //     title: "她要好好睡觉",
+        //     id: 3,
+        // }, ];
+        // document.write(`
+        // /* table编写整个表单 */
+        // <table border='1' width="100%" >
+        //     /* thead编写头部 */
+        // <thead><tr><th>标题</th><th>课程</th></thead>
+        // `);
+        // for (let i in hd) {
+        //     document.write(`
+        //     <tr><td>${hd[i].title}</td><td>${hd[i].id}</td></tr>
+        //     `);
+        // }
+        // document.write("</table>");
+
+        let hhn = ["hhn.com", "huhaining"];
+        for (let key in hhn) {
+            //可以利用key键值取到
+            console.log(hhn[key]);
+        }
+
+        /* 对于window来说key有很多 */
+        // for (let key in window) {
+        //     console.log(key);
+        //     // console.log(window[key]);
+        // }
+
+        // // 处理相对应的名字
+        // // 迭代对象
+        let hd = [{
+            title: "我要好好学习",
+            id: 1,
+        }, {
+            title: "你要好好吃饭",
+            id: 2,
+        }, {
+            title: "她要好好睡觉",
+            id: 3,
+        }, {
+            title: "您要好好拉屎",
+            id: 4,
+        }, ];
+        document.write(`
+        /* table编写整个表单 */
+        <table border='1' width="100%" >
+            /* thead编写头部 */
+        <thead><tr><th>标题</th><th>课程</th></thead>
+        `);
+        for (let once of hd) {
+            /* 看看有几项 */
+            console.log(Object.keys(hd));
+            /* 拿到某一下项 */
+            console.log( /* 已经是对象里包着数组 */ Object.values(hd)[0].title);
+            document.write(`
+            <tr><td>${once.title}</td><td>${once.id}</td></tr>
+            `);
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

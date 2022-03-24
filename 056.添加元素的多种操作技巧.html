@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = ["huhaining", "hhn.com"];
+        //可以通过length追加
+        array[array.length] = "camera2";
+        array[array.length] = "shop3";
+        console.log(array);
+        //通过...追加
+        let hhn = [...array, "japan"];
+        console.log(hhn);
+        //通过push追加
+        array.push("shop4");
+        console.table(array);
+        //追加一组
+        let [...hh] = ["1", "2", "3"];
+        array.unshift("0", ...hh);
+        console.log(array);
+        array.shift(...hh);
+        console.table(array);
+
+        //随即返回一个数组
+        function rangeArray(begin, end) {
+            const arr = [];
+            for (let i = begin; i <= end; i++) {
+                arr.push(i)
+
+            }
+            return arr
+        }
+        console.table(rangeArray(4, 10));
+    </script>
+</body>
+
+</html>

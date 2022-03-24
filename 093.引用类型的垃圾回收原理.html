@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 垃圾回收 */
+    let hhn = {
+        name: "胡海宁",
+    };
+    /* 内存地址被外面引用了两次 */
+    /* 空间变了 内存地址不变 */
+    let wlh = hhn;
+    let zjl = wlh;
+    /* 我换个房间住了 */
+    console.log(zjl);
+    let arr = [hhn];
+    console.log(arr);
+    /* 即便我Object等于删了 赋予了null了 内存地址还是有的 */
+    hhn = null;
+    wlh = null;
+    /* 除非我把数组中第1个空间删了[0],那就真无了 比方说 arr[0]=null */
+    arr[0] = null; //那就显示[null]
+
+    console.log(arr);
+    console.log(wlh);
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let hhn = new Map([
+        ["huhaining", "胡海宁"],
+        ["dage", "大哥"],
+    ]);
+    hhn.set("name", "在线编程");
+    /* 挨个看一遍对应的是什么 */
+    console.log(hhn.keys());
+    console.log(hhn.values());
+    console.log(hhn.entries());
+    /* for of循环查看 */
+    for (const key of hhn.keys()) {
+        console.log(key);
+    }
+
+    for (const value of hhn.values()) {
+        console.log(value);
+    }
+    for (const entry of hhn.entries()) {
+        console.log(entry);
+    }
+    /* for of整体遍历循环查看 */
+    for (const [key, value] of hhn.entries()) {
+        console.log(key, value);
+    }
+    /* forEach方法循环查看 */
+    hhn.forEach((value, key) => {
+        console.log(value, key);
+    });
+</script>
+
+</html>

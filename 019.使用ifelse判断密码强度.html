@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="password" />
+    <span id="msg"></span>
+    <script>
+        // let site = false;
+        // if (site) {
+        //     console.log("hhn");
+        // } else {
+        //     console.log("hhn.com");
+        // }
+        document
+            .querySelector("[name='password']")
+            .addEventListener("keyup", function() {
+                let length = this.value.length;
+                let span = document.querySelector("#msg");
+                let msg = '';
+                if (length == 10) {
+                    msg = "密码效果为强";
+                } else if (length >= 6 && length < 10) {
+                    msg = "密码效果为适中";
+                } else if (length < 6) {
+                    msg = '密码效果为弱'
+                } else {
+                    msg = '密码格式不对'
+                }
+                span.innerHTML = msg;
+            });
+    </script>
+</body>
+
+</html>

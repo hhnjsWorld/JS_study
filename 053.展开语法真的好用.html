@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let hhn = ["hu", "hai", "ning"];
+        let hhnhhn = ["js", "css"];
+        for (const value of hhnhhn) {
+            hhn.push(value);
+        }
+        console.table(hhn);
+
+        //扩展运算符英文 ，这样写就行了 压缩在一起
+        let spreadOperator = [...hhn, ...hhnhhn];
+        console.log(spreadOperator);
+
+        //函数里
+        function sit(...calls) {
+            console.log(calls);
+        }
+        sit(1, 2, 3, 4, 5, 6)
+
+        //reduce计算运算
+        function sum(...args) {
+            // console.log(args);
+            return args.reduce((s, v) => {
+                return (s += v)
+            }, 0)
+        }
+        console.log(sum(100, 1, 2, 3, 4, 5, 6));
+    </script>
+</body>
+
+</html>

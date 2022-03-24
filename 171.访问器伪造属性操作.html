@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 'use strict'
+    let lesson = {
+        lists: [{
+            name: 'js',
+            price: 100
+        }, {
+            name: 'css',
+            price: 99
+        }, {
+            name: 'html',
+            price: 98
+        }],
+        get total() {
+            /* 加法运算 */
+            return this.lists.reduce((t, l) =>
+                t + l.price, 0
+            )
+        }
+    }
+    console.log(lesson.total);
+    /* 在严格模式之下不起作用不打印 */
+    lesson.total = 8888;
+    console.log(lesson.total);
+</script>
+
+</html>

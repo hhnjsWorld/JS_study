@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 原理剖析 */
+        let arr = ["我的", "你的"];
+        // /* 温故解构 这个逻辑 */
+        // // let [a, b] = arr;
+        // // console.log(a, b);
+        // let entries = arr.entries();
+        // let {
+        //     done,
+        //     value: [a, b],
+        // } = entries.next();
+        // console.log(a, b);
+        /* 把索引和值展现在条目中 */
+        /* 强记结构对象等于数组 反之数组解为成对象 */
+        for (const [keys, value] of arr.entries()) {
+            console.log( /*认出是字符串了*/ typeof(keys, value));
+        }
+        /* 单一的对象而言把他们展现出来 */
+        for (const value of arr.entries()) {
+            console.log(typeof value);
+        }
+
+        //   /* keys取索引， */
+        //   //   let keys = arr.keys();
+        //   // let values = arr.values();
+        //   let entries = arr.entries();
+
+        //   let { done, value } = entries.next();
+        //   console.log(done, value);
+
+        /* 展开条目 */
+        // console.log(entries.next());
+
+        /* forof专门处理迭代对象的 */
+        /* 我在这个组里承担什么角色 */
+        /* keys查取索引*/
+        /* valu查取值 */
+        // for (const /* value */ key of arr. /* values */ keys()) {
+        //     console.log( /* value */ key);
+        // }
+
+        //   //{done:true,value:'xxx'}
+        //   while (({ value, done } = values.next()) && done === false) {
+        //     /* 这是死循环 */
+        //     console.log(done);
+        //     console.log(value);
+        //   }
+        /* 使用展开语法读取出来 */
+        // let {
+        //     /* value取到值 */
+        //     value,
+        //     done
+        // } = keys.next();
+
+        // console.log(value, done); //打印出来是 0 false
+        // console.log(keys.next());
+        // console.log(keys.next());
+        // console.log(keys.next());
+    </script>
+</body>
+
+</html>

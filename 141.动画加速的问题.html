@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<style>
+    button {
+        position: absolute;
+    }
+</style>
+
+<body>
+    <button info="胡海宁">huhaining</button>
+    <button info="hhn.com">大神</button></button>
+</body>
+
+<script>
+    // setInterval(function() {
+    //     a = "3"
+    //     console.log(a);
+    // }, 1000);
+    // let onceAsecond = '1'
+    let btns = document.querySelectorAll('button')
+
+    btns.forEach((ele) => {
+        //parent
+        // let left = 1;
+
+        /* setInterval的动画加速效果清零解决 */
+        let interval = false;
+        // let bind = false;
+        console.log(ele);
+        ele.addEventListener('click', (index) => {
+            /* 函数执行一次之后就会产生一个环境区域 */
+            /* setInterval的动画加速效果清零解决 */
+
+            if (!interval /* !bind */ ) {
+                let left = 1;
+                /* 按一次等于true 按一次等于true */
+                interval = true;
+                console.log(left + ele.innerHTML);
+                setInterval(function() {
+                    // console.log(onceAsecond);
+                    ele.style.left = left++ + 'px'
+                }, 50)
+            }
+            /* 每个按钮的left都是独享的 */
+
+        })
+    })
+</script>
+
+</html>

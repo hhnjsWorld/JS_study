@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let arr = [];
+
+    for (let i = 1; i <= 3; i++) {
+        // console.log(arr.length);
+        arr.push(() => {
+            return i;
+        });
+    }
+    /* 这里就是索引相对的数 */
+    console.log(arr[2]()); //1
+
+    let arrA = []
+    for (var j = 1; j <= 3; j++) {
+        // console.log(arr.length);
+        (function(a) {
+            console.log(a);
+            arrA.push(() => {
+                return a;
+            });
+        })(j)
+    }
+    /* 这里就是长度 */
+    console.log(arrA[1]()); //2
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 把js的数据 变成JSON字符串的操作 */
+    let hhn = {
+        title: '前端',
+        url: 'baidu.com',
+        human: {
+            name1: '胡大仙',
+            name2: '于总'
+
+        },
+        /* 方法二  自制JSON数据*/
+        toJSON: function() {
+            return {
+                title: this.title,
+                human: this.human.name2
+            };
+        }
+    };
+    let json = JSON.stringify(hhn);
+    console.log(json);
+
+
+
+    /* 方法一 */
+    // let json = JSON.stringify(hhn, ['name', 'url'], 2);//我只想选两个属性显示  数字表示格式
+    // console.log(json);
+
+    // let arr = ['胡海宁', 'hhnhhn.com'];
+    // let arrJson = JSON.stringify(arr, ['brother', 'web'])
+    // console.log(arrJson);
+</script>
+
+</html>

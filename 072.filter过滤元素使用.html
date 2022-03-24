@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let arr = ["dashabi", "xiaoshabi", "bigshabi"];
+    // let newArr = arr.filter(function(value, index, arr) {
+    //     // console.log(newArr);
+    //     return false;
+    // });
+    // console.table(newArr);
+    let persons = [{
+        any: "帅帅的大男孩",
+        sex: "男",
+    }, {
+        any: "美丽的眼神",
+        sex: "女",
+    }, {
+        any: "雄壮的肌肉",
+        sex: "男",
+    }, ];
+    const sexPersons = persons.filter(function(person) {
+        return person['sex'] == '男'
+        return true
+    })
+    console.table(sexPersons);
+</script>
+
+</html>

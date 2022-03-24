@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* JSON转js JSON.parse */
+    let hhn = {
+        title: '后端',
+        url: 'hhnhhn.com',
+        own: {
+            student: '胡海宁'
+        }
+    };
+    let jsonStr = JSON.stringify(hhn, null, 2)
+    console.log(typeof jsonStr); //传递过来的都是string
+    console.log(`%c${jsonStr}`, 'color:purple');
+
+
+    /* 转换的话用 JSON.parse*/
+    let jsonPar = JSON.parse(jsonStr)
+    console.log(jsonPar);
+
+    /* 定制下的选取 */
+    let obj = JSON.parse(jsonStr, (key, value) => {
+        console.log(key); //键名
+        console.log(value); //键值
+
+        /* 判断 */
+        if (key == 'title') {
+            value = `胡海宁学习JSON` + value
+        }
+        return value
+    })
+</script>
+
+</html>

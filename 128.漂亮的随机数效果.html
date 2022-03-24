@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            width: 130px;
+            margin: 10% 30%;
+            font-size: 130px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>操</div>
+</body>
+<script>
+    /* 获取随机颜色的效果 */
+    function Color(elem) {
+        console.log(elem);
+        this.elem = elem;
+        /* 可选的颜色列表 */
+        this.colors = [
+            "#bce672",
+            "#3eede7",
+            "#f00056",
+            "#96ce54",
+            "#16a951",
+            "#955539",
+        ];
+        this.run = function() {
+            // console.log(this);
+            /* 第一种方法 */
+            let self = this;
+
+            setInterval(
+                function() {
+                    console.log(self.colors);
+                    let i = Math.floor(Math.random() * this.colors.length);
+                    // console.log(this.elem);
+                    // console.log(i);
+                    this.elem.style.backgroundColor = this.colors[i];
+                    // console.log(this);
+                }.bind(
+                    self
+                ) /* bind重新指定向为内部this了 不然function里面的永远是window */ ,
+                1000
+            );
+            // console.log(this);
+
+            /* 第二种方法 */
+            setInterval(() => {
+                // console.log([this.colors]);
+                // console.log(this);
+                // let i = Math.floor(Math.random() * this.colors.length)
+                //     // console.log(this.elem);
+                // console.log(i);
+                // this.elem.style.backgroundColor = this.colors[i]
+            }, 1000);
+
+            /* 第三种方法 */
+            // let that = this
+            // setInterval(function() {
+            //     console.log();
+            //     console.log([that.colors]);
+            //     let i = Math.floor(Math.random() * that.colors.length)
+            //     that.elem.style.backgroundColor = that.colors[i]
+
+            // }, 2000);
+        };
+    }
+    /* 渲染到body上 */
+    let obj = new Color(document.body);
+    obj.run();
+    let div = new Color(document.querySelector("div"));
+    div.run();
+</script>
+
+</html>

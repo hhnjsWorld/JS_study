@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 严格模式下为了防止使用this后无意间使用了window的属性 */
+    // 'use strict'
+
+    function Own(name, change) {
+
+        this.names = name;
+        /* 改变形参指向 在构造函数里的范围性使用this */
+        this.changes = change
+
+        /* 在构造函数中的函数中this这个方法 指得是 调用方法的对象 */
+        this.show =
+            function /* Aa */ () {
+                console.log(`%c${this}`, 'color:red');
+                this.changes = change
+                this.names = name;
+                console.log(this.changes + 'A');
+                console.log(this.names);
+                // console.log(this);
+
+                /*  this.is =   */
+                function Bb() {
+                    /* 不管嵌套多少层 始终指向调用方法的对象 */
+                    this.changes = "改变"
+                    console.log(this.changes + 'B');
+                    this.Cc = () => {
+                            console.log(this.changes + 'C');
+                        }
+                        /* 跑 起 来*/
+                    this.Cc()
+                }
+                let runB = new Bb()
+                console.log(runB);
+                // this.is()
+
+            };
+        // let runA = new Aa()
+        // console.log(runA);
+        this.show()
+
+        // return this
+        /* 想想看我在构造函数里创建了N个子构造函数,道理一样赋予一个环境更改指向 */
+    }
+    let hn = new Own("胡海宁", "不变");
+
+    console.log(hn);
+
+    console.log('-------------------------------------------------------');
+
+    console.log(`%c${hn.show()}`, "font-family:'仿宋';color:blue;font-size:100px");
+    /* 普通函数调用的话this指向的是window */
+    let func = hn.show;
+    console.log(this);
+    func();
+</script>
+
+</html>

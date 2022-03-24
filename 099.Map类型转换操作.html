@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let hhn = new Map([
+        ["huhaining", "胡海宁"],
+        ["dage", "大哥"],
+    ]);
+    /* 追加进去了 */
+    // hhn.set("牛栏山", "二锅头");
+    // console.log(hhn);
+
+    // //a=> b =>a\
+    // //合体
+    // console.log([...hhn]);
+    // /* 单独是一个键的话就看的 */
+    // console.log([...hhn.keys()]);
+    // /* 看一个值的话 */
+    // console.log([...hhn.values()]);
+    // /* 以for of的形式的话就是[keys,values] 在我的数据里面的角色 */
+    // for (const [key, value] of hhn) {
+    //     /* 变成可迭代对象 */
+    //     console.log(key, value);
+    // }
+    let newArr = [...hhn].filter((item) => {
+        // console.log();
+        /* 我怕判断的是项 是不是 大哥 ==大哥 */
+        return item[1].includes("大哥");
+    });
+    // console.log(newArr);
+    let edu = new Map(newArr)
+    console.log(...edu.values());
+</script>
+
+</html>

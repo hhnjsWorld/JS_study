@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //>=0~<1
+        console.log(Math.random());
+        //0~5 0~0.9 *5 Math.floor(0 4.5) 0~4
+        //Math.floor(Math.random()*(Max+1));
+        //区间 后者+1
+        console.log(Math.floor(Math.random() * (5 + 1)));
+
+        //2~5 2.7 2 0~2
+        console.log(2 + Math.floor(Math.random() * 3));
+
+        //2~5  取区间公式
+        console.log(2 + Math.floor(Math.random() * (5 - 2) /* +1 */ )); //  2~4 ,2~5就+1
+
+        const study = ["语文", "数学", "外语", "地理", "生物", "政治", "历史"];
+        // console.log(study.length);
+        // console.log(stydy[6]);
+
+        const index = Math.floor(Math.random() * study.length);
+        console.log(study[index]);
+
+        //2~
+        console.log(2 + Math.floor(Math.random() * (study.length - 2))); //2~6
+        const index2 = 2 + Math.floor(Math.random() * (study.length - 1 - 1)); //2~5
+        console.log(index2);
+        console.log(study[index2]);
+
+        const index3 = 2 + Math.floor(Math.random() * (4 - 1)); //3~5
+        console.log(study[index3]);
+
+        //随机数封装好的方法
+        const arrayRandomValue = (array, start = 0, end) => {
+            end = end ? end : array.length;
+            start--;
+            const index = start + Math.floor(Math.random() * (end - start));
+            return array[index];
+        }
+
+
+        //可以操作任何数组 
+        console.log(arrayRandomValue(study, 1, 7));
+        console.log(arrayRandomValue([1, 2, 3, 4, 5, 6, 7]));
+    </script>
+</body>
+
+</html>

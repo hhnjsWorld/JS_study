@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./048.momentjs.js"></script>
+    <script>
+        const date = moment('1996-04-27 16:27:27');
+        console.log(date.format("YYYY-MM-DD HH:mm:ss"));
+        console.log(date.subtract(10, 'days').format("YYYY-MM-DD HH:mm:ss"));
+        console.log(date.add(20, 'days').format("YYYY-MM-DD HH:mm:ss"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //传值 传址
+        var a = 1;
+        var b = a;
+        console.log(a, b);
+        b = 3;
+        console.log(a, b);
+
+        let car = {
+            name: '兰博基尼'
+        };
+        let bike = car;
+        console.log(car, bike);
+        bike.name = '胡海宁'
+        console.log(car, bike);
+
+        //传值的时候跟你新复制一块空间,标量:比如字符串/数值
+        //传址的时候针对于一个比较大的空间,比如对象/数组
+    </script>
+</body>
+
+</html>

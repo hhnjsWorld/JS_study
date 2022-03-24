@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .remove {
+            color: white;
+            background-color: grey;
+            width: 200px;
+        }
+        
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            hhnA.com
+            <a href="javascript:;">x</a>
+        </li>
+        <li>
+            hhnB.com
+            <a href="javascript:;">x</a>
+        </li>
+        <li>
+            hhnC.com
+            <a href="javascript:;">x</a>
+        </li>
+    </ul>
+</body>
+
+<script>
+    // 定义一个类
+    class Todo {
+        // 然后再写构造函数
+        constructor() {
+                this.items = document.querySelectorAll("ul>li");
+                // console.log(this.items);
+                this.lists = new WeakSet();
+                this.items.forEach((item) => {
+                    this.lists.add(item);
+                });
+                console.log(this.lists);
+            }
+            /* 跑起来 */
+        run() {
+            this.addEvent();
+        }
+        addEvent() {
+            this.items.forEach((item) => {
+                let a = item.querySelector("a");
+                console.log(a);
+                /* event是事件的英文 */
+                a.addEventListener("click", (event) => {
+                    /*parentElement找到当前元素父级  */
+                    const parentElement = event.target.parentElement;
+                    console.log(parentElement);
+                    if (this.lists.has(parentElement)) {
+                        // alert(3)//判断是有的
+                        /*  classList干嘛用的 就是摘取样式 来添加删除的"效果" 
+                        remove 移除生效的话就 删除父级
+                        */
+                        parentElement.classList.add("remove");
+                        this.lists.delete(parentElement);
+                    } else {
+                        /* remove 移除移除效果的话 父级就给拿回来 */
+                        parentElement.classList.remove("remove");
+                        this.lists.add(parentElement);
+                    }
+                });
+            });
+        }
+    }
+    new Todo().run();
+</script>
+
+
+</html>

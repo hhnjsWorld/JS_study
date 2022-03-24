@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // function hhn() {
+    //     console.log("胡海宁");
+    // }
+
+    // console.log(window.screenX);
+    // window.hhn();
+    // console.log(window);
+
+
+    /* 根据声明关键词let var等来判断作用于哪儿的 */
+    var hhn = function() {
+        console.log("hhn.com");
+    };
+    /* 在 var的环境中 被window定义到的话也可以以window.取到 */
+    window.hhn()
+
+    let hhns = function() {
+        console.log("hhns.com");
+    };
+    /* 在let的环境中 不可以被window定义到的话也可以取访问 */
+    hhns()
+</script>
+
+</html>

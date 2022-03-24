@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let hhn = {
+        name: '胡海宁'
+    }; //Object
+    console.log(hhn);
+    console.log(hhn.__proto__.name == Object.prototype.name);
+
+
+    /* 同理 */
+    /* 数组 */
+    Array.prototype.show = function() {
+        console.log('数组被prototype添加');
+    }
+    console.log(Array.prototype.show.__proto__ == Function.__proto__);
+    let arr = [{
+            name1: '张三'
+        },
+
+        {
+            name2: '李四'
+        }
+    ];
+    arr.show()
+    console.log(arr);
+    console.log(arr.__proto__ /* ['name1'] */ == Array.prototype /* ['name2'] */ );
+
+    /* 布尔值 */
+    let bool = true;
+    console.log((bool.__proto__ == Boolean.prototype));
+
+    /* 字符串 */
+    let string = '';
+    console.log(string.__proto__ == String.prototype);
+</script>
+
+</html>

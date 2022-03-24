@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 这个文件要反复看深入理解 */
+    function hhn() {
+        let n = 1;
+
+        return function sum() {
+            // let title = '胡海宁'
+            let m = 2;
+
+
+            /* 添加了返回值 */
+            return function show() {
+                console.log(`我是n %c ${++n}`, 'color:red;font-size:20px');
+                console.log(`我是m %c ${++m}`, 'color:green;font-size:20px');
+
+            }
+            show()
+
+
+
+
+        };
+        sum();
+    }
+
+    /* 我想累加m的话不会累加 因为这还是重复的执行我的空间 */
+    let mm = hhn()()
+    mm()
+    mm()
+    mm()
+    mm()
+
+    /* 就是独立的空间被重复了 */
+    hhn();
+    hhn();
+    console.log(hhn());
+    /* 假如说我调2次 显示两次 就等于开辟了一个空间了 */
+    // hhn()
+    let a = hhn();
+    /* 增加的效果的话一个一个拿来调 2 3 4 5 */
+    a();
+    a();
+
+    let b = hhn();
+    b();
+    b();
+    let c = hhn();
+    c();
+    c();
+
+    /* 总结 
+    函数每执行一次之后会创造一个新的空间
+    */
+    /* 核心原理
+    如果我这个环境定义的数据在被使用那就不删
+    */
+</script>
+
+</html>

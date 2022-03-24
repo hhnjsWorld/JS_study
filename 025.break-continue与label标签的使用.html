@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log(5 % 2 == true);
+        for (let i = 0; i <= 10; i++) {
+            if (i % 2) continue;
+            console.log(i);
+        }
+
+        for (let j = 1; j <= 10; j++) {
+            console.log(j);
+            break;
+        }
+
+        let count = 0;
+        for (let k = 1; k <= 10; k++) {
+            if (k % 2) {
+                if (count++ == 3) break;
+                console.log(k);
+            }
+        }
+
+        //标签跳到break的中止
+        huhaining: for (let m = 0; m <= 10; m++) {
+                if (m % 2) continue huhaining;
+                console.log(m);
+            }
+            //笛卡尔乘积 打标签人的我在哪停止的
+        hhnStop: for (let h = 1; h <= 10; h++) {
+            hhnOushu: for (let n = 1; n <= 10; n++) {
+                if (n % 2 == 0) {
+                    console.log(h, n);
+                }
+                if (h + n > 10) {
+                    // console.log(h, n);
+                    break hhnStop;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

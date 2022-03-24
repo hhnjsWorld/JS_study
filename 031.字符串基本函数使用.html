@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="password" />
+    <span></span>
+    <script>
+        // let name = 'huhaining '
+        // console.log(name.length);
+        // console.log(name.toUpperCase());
+        // console.log(name.toLowerCase());
+        // let site = '   hhnhhn'
+        // console.log(site.trim().length);
+        let ps = document.querySelector("[name='password']");
+        ps.addEventListener("keyup", function() {
+            //去掉空白trim()
+            this.value = this.value.trim();
+            let span = document.getElementsByTagName("span");
+            let error = "";
+            if (this.value.length < 5) {
+                error = "密码不能小于5位";
+            }
+            // console.log(this.value.trim().length);
+            span[0].innerHTML = error;
+            console.log(span[0]);
+        });
+
+        let hhn = "huhaining";
+        //调取到对于字符串来说的第0位
+        // console.log(hhn.charAt(0));
+        console.log(hhn[0]);
+
+        for (let i = 0; i < hhn.length; i++) {
+            let span = document.createElement("span");
+
+            span.style.fontSize = (i + 1) * 10 + "px";
+            span.innerHTML = hhn[i];
+
+            document.body.append(span);
+        }
+    </script>
+</body>
+
+</html>

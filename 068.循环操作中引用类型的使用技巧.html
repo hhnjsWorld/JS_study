@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let persons = [{
+            any: "帅帅的大男孩",
+            sex: "男",
+        }, {
+            any: "美丽的眼神",
+            sex: "女",
+        }, {
+            any: "雄壮的肌肉",
+            sex: "男",
+        }, ];
+        /* for循环的方式 */
+        for (let i = 0; i < persons.length; i++) {
+            persons[i].any = `胡海宁${persons[i].any}`;
+        }
+        console.table(persons);
+        /* for of 循环的方式 */
+        for (const onece of persons) {
+            console.log(value);
+        }
+    </script>
+</body>
+
+</html>

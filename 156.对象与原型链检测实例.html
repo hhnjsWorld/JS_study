@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let hhn = {
+    //     name: '胡海宁'
+    // }
+    /* 原型数组的父亲 */
+    let arr = ["hhn.com", "哈哈"];
+
+    /*  是length属性 */
+    console.log(arr.hasOwnProperty("length")); //true
+
+    /* 检查父和子中是否包含 concat属性 */
+    console.log("concat" in arr);
+
+    let a = {
+        name: "胡海宁",
+    };
+    let b = {
+        url: "hhn.com",
+    };
+    /* 为a找一个新的父亲 */
+    Object.setPrototypeOf(a, b); //
+    console.log(a); //URL这时候是儿子了
+
+    /* a是否包含URL属性 */
+    console.log(a.hasOwnProperty("url")); //false
+
+    /* 检测这个属性是否在原型链中 */
+    console.log("url" in a); //true
+
+    function oss(options) {
+        /* 配置项里是否包含主机 */
+        if (!options.hasOwnProperty('host')) {
+            /* 没有的话抛出一个错误 */
+            throw new Error('我是傻逼,必须配置主机地址')
+        }
+    }
+    oss({
+        user: 'admin'
+    })
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    let hhn = arr.filter(function(v) {
+        return v >= 2 && v < 7;
+    });
+    // console.log(hhn);
+
+    let a = arr.filter(function(z) {
+        return z >= 3 && z < 6;
+    });
+    // console.log(a);\
+
+    /* 按关键获取区间 */
+    /* 优化复用 */
+    let array = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+
+    /* 取区间的话 */
+    function between(x, y) {
+        /* 利用闭包的特性 */
+        let o = 2;
+        /* 闭包可以访问到父级的变量 */
+        return function jia(k) {
+            console.log(o++);
+            return k >= x && k <= y;
+        };
+    }
+
+    let total = between();
+    total();
+    console.log(array.filter(between(33, 88)));
+
+
+    let people = [{
+        name: "大漂亮",
+        height: 158,
+        weight: 100,
+    }, {
+        name: "二漂亮",
+        height: 168,
+        weight: 120,
+    }, {
+        name: "三漂亮",
+        height: 178,
+        weight: 140,
+    }, {
+        name: "四漂亮",
+        height: 188,
+        weight: 160,
+    }, ];
+
+
+    /* 取区间的话 */
+    function among(minimum, max) {
+        /* 利用闭包的特性 */
+
+        /* 闭包可以访问到父级的变量 */
+        return function(value) {
+            /*那肯定是针对于window的数组对象 */
+            console.log(value);
+            return value.weight >= minimum && value.weight <= max;
+        };
+    }
+
+
+    console.table(people.filter(among(120, 150)));
+</script>
+
+</html>

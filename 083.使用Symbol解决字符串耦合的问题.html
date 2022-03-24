@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 比方说 班上两个人都叫胡海宁 然后 成绩不一样怎么去展开 */
+        /* Symbol在对象里类似于打标签吧 */
+        let user1 = {
+            name: "胡海宁",
+            key: Symbol("96年的胡海宁"),
+        };
+        let user2 = {
+            name: "胡海宁",
+            key: Symbol("97年的胡海宁"),
+        };
+        let users = {
+            [user1.key]: {
+                语文: 100,
+                数学: 90,
+                英语: 80,
+            },
+            [user2.key]: {
+                语文: 99,
+                数学: 88,
+                英语: 77,
+            },
+        };
+
+        console.log(users);
+        console.log(users[user1.key]);
+
+        let Someone1 = "李白";
+        let Someone2 = "李清照";
+        let Someone3 = {
+            name: Symbol("杨绛"),
+        };
+
+        /* 我定义了一个对象的话 反之我怎么在我的数据里再看到加上[] 取里面的变量  */
+        let persons = {
+            [Someone1]: {
+                job: "诗人",
+                dynasty: "唐朝",
+            },
+            [Someone2]: {
+                /* 我定义了一个对象的话 反之我怎么在我的数据里再看到加上[] */
+                job: "词人",
+                dynasty: "宋朝",
+            },
+            [Someone3.name]: {
+                name: '杨绛',
+                job: "作家",
+                dynasty: "现代",
+            },
+        };
+        console.log(persons[Someone3.name]);
+        console.log(persons);
+        console.log([Someone1]);
+        console.log(persons[Someone1]);
+    </script>
+</body>
+
+</html>

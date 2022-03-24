@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    // let hhn = function() {
+    //     return 1 + 2;
+    // };
+    // hhn();
+    // console.log(hhn());
+
+    /* 箭头函数语法 */
+    /* 和function结果等同 */
+    let hn = () => {
+        return 1 + 2;
+    };
+    // console.log(hn());
+
+    console.log("---------");
+
+    /* 箭头函数对function的优化 */
+    /* 箭头函数实则不用加{return...}这样的 他能自动帮我们运算出结果 */
+    let step = [1, 2, 3, 5, 6, 7, 9].filter((value, index, arr) => {
+        return value <= 3;
+        console.log(value);
+
+        // console.log(arr[index]);
+        // let cc = [index].reduce((a, b) => {
+        //     return a + b;
+        // }, 1);
+        // console.log(cc);
+        // console.log(index);
+    });
+    console.log(step);
+    if (step != Number) console.log("傻逼");
+
+    console.log("----------0-------");
+    /* 拿求和的例子简单来说 */
+    let array = [1, 2, 4, 5, 6].reduce((a, b) => a + b, 100);
+    console.log(array);
+
+    /* 注意：如果考虑到this关键词的问题 
+    比方说构造函数，递归 就方便用function
+    而不方便用箭头函数了
+
+    箭头函数没有具体的函数名字,做回调或者递归很多的不方便
+    */
+</script>
+
+</html>

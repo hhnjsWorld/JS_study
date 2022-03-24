@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    'use strict'
+    const user = {
+        name: "胡海宁",
+        age: "25",
+    };
+    console.log(
+        JSON.stringify(Object.getOwnPropertyDescriptor(user, "age"), null, 2)
+    );
+    /* Object.defineProperty有新增属性的功能,不仅有修改属性的功能 */
+    Object.defineProperty(user, "name", {
+
+        /* 譬如说保护后台的ip 保护接口 */
+
+        /* 值的值 */
+        value: "vue双向绑定用的就是Object.defineProperty原理",
+        /* 严格模式下不生效 不能更改 defineProperty下的四个属性参数 */
+        writable: true,
+
+        /* 是否可以遍历  手动不可以*/
+        enumerable: true,
+
+        /* 是否可以删除 */
+        /* 改成不可以配置 */
+        configurable: true
+    });
+    Object.defineProperty(user, "add", {
+        value: "我是新来的",
+
+    });
+    console.log(user);
+    console.log(user.name, user.age, user.add);
+    delete user.name
+    user.name = "大傻逼";
+    console.log(user.name);
+
+    console.log(Object.keys(user));
+</script>
+
+</html>

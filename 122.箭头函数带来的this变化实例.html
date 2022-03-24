@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="haha">hhn.com</button>
+    <!-- 如果大量的按钮需要使用 -->
+    <button id="haha">hhnhhn.com</button>
+    <button id="haha">hhnhhnhhn.com</button>
+</body>
+<script>
+    windows = "我是window";
+    /* 举例子 */
+    /* 箭头函数带来的不便 */
+    let Dom = {
+        name: "点我",
+        /* 也可以写一个方法 */
+        handleEvent: function(event) {
+            // console.log(event.target); //还是指向按钮
+            /* 三、针对于调用我写的方法去打印 */
+            console.log(this.name + event.target.innerHTML);
+        },
+        bind: function() {
+            let buttons = document.querySelectorAll("button");
+            console.log(this);
+            // console.log([...haha]);
+            /* 方法里的this只想变更指向必须由self改变
+                以便于下面的普通函数能够成功调用
+                不然像map(),forEach()这样的普通函数里面的this都会指向window
+                */
+
+
+
+            let self = this
+                /* 如果是箭头函数里面的话 指向的是上下文儿 */
+            buttons.forEach(function(elem) {
+                console.log(self);
+                // console.log(this); // 因为他是个普通函数 这个指向的是window 箭头函数中限免自然指向的也是window
+                elem.addEventListener(
+                    "click",
+                    function(event) {
+
+                        console.log(event.target.innerHTML + self.name);
+                        // console.log( /* self */ this); // 因为环境不同 function定义的话这个this肯定指向了dom元素，被箭头函数定义的话这个肯定是上下文
+                    }
+                );
+            });
+
+
+            buttons.forEach((ele) => {
+                    console.log(ele);
+                    ele.addEventListener('click', ((event) => {
+                        console.log('我是箭头函数指定上下文儿就好了,我不像function函数self改变this的指向');
+                        console.log(this.name + event.target.innerHTML);
+                    }))
+                })
+                // const button = document.getElementById("haha");
+
+            // /* 三、针对于调用我写的方法 */
+            // button.addEventListener("click", this);
+            // /* 这个this肯定指向的当前对象 Dom */
+            // console.log(this);
+
+            // /* 一、针对于function的方法 */
+            // /* 改变this指针指向父级 */
+            // const _that = this;
+            // // console.log(haha);
+            // /* function函数的作用 */
+            // button.addEventListener(
+            //     "click",
+            //     function() {
+            //         // console.log(this);
+
+            //         // console.log(_that);
+            //         // console.log(window);
+            //         /* 这个指向的是window */
+            //         console.log(_that);
+            //         console.log(_that.name + this.innerHTML);
+            //     } /* window */
+            // );
+
+            /* 二、针对于function的方法 */
+            /* 箭头函数中的this */
+            /* 箭头函数 形参的方式去获得父级 */
+            // button.addEventListener("click", (event) => {
+            //     /* 箭头函数中的this就是指的上下文 就是父级作用域中的内容 */
+            //     // console.log(this);
+            //     /* target目标的意思 */
+            //     // console.log(event.target);
+            //     /* 这个this指的就是上下文 */
+            //     // console.log(`${this.name} + ${event.target.innerHTML}`);
+            // });
+            // 可以理解为↓ 如果函数是一个属性值的话this就是我当前点击的按钮
+            // button.onclick = function() {
+            //     console.log(this);
+            // }
+
+            /*需求 模板字符串连接 */
+        },
+    };
+    Dom.bind();
+    /* 箭头函数转变为function */
+    // let hhn = /* function(name) */ (name) => {
+    //     console.log(name);
+    // };
+    // hhn();
+    // console.log("胡海宁");
+
+    // let Lesson = {
+    //     site: "数学",
+    //     lists: ["几何", "高数", "大数"],
+
+    //     show: function() {
+    //         /* this指向的是当前的对象 */
+    //         console.log(this);
+    //         console.log(this.site);
+    //         console.log(this.lists);
+    //         console.log(this.show);
+    //         /* 普通函数的this指向的是window */
+    //         /* 当前函数没有我可以向上找 */
+    //         const self = this;
+    //         return this.lists.map(
+    //             /* function函数这么操作 */
+    //             //     function (value) {
+    //             //   /* 这个this是window */
+    //             //   // console.log(this);
+    //             //   console.log(value);
+    //             //   // console.log(this); //这个this指向的是window
+    //             //   // console.log(self);
+    //             //   /* 连接成结果 */
+
+    //             //   return `${self.site}-${value}`;
+    //             // }
+
+    //             /* 箭头函数这么操作 */
+    //             (value) => {
+    //                 /* 这个this指向的是上下文 this指向的是父级作用域的内容 */
+    //                 console.log(this);
+    //                 /* 这个this是window */
+    //                 // console.log(this);
+    //                 console.log(value);
+    //                 // console.log(this); //这个this指向的是window
+    //                 // console.log(self);
+    //                 /* 连接成结果 */
+
+    //                 /* self变量可以省略 */
+    //                 return `${this.site}-${value}`;
+    //             }
+    //         );
+    //     },
+    // };
+    // console.table(Lesson.show());
+
+    /* 总结一下
+    在箭头函数中的this指向的就是上下文
+    就是父级作用于当中的this
+
+    普通函数下的this指向的就是window
+
+
+    如果大浪需要用到按钮这个dom的话就是普通函数
+
+    如果大量用到父级的方法的话 我会用到箭头函数
+    */
+</script>
+
+</html>

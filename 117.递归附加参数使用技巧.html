@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    let poet = [{
+        name: "李白",
+        click: 50,
+    }, {
+        name: "杜甫",
+        click: 60,
+    }, {
+        name: "李清照",
+        click: 70,
+    }, {
+        name: "辛弃疾",
+        click: 80,
+    }, ];
+
+    function person(poet, num = 100, i = 0) {
+        /* i= 0 从0开始计算  */
+        console.log(i);
+        // console.log(poet.length);
+        if (i == poet.length) {
+            /* 我长度对应着正确的长度的话就返回出去 */
+            return poet;
+        }
+        /* 长度对应对着的 */
+        poet[i].click += num;
+        return person(poet, num, ++i);
+    }
+    // person()
+    /* 实参为准 上明形参为默认 */
+    console.table(person(poet, -10));
+
+    poet.map(function(item) {
+        item.click += 200;
+        return item
+    });
+    console.table(poet);
+</script>
+
+</html>

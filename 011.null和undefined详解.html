@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //null undefined
+        // //要保存一个引用类型,初始值就是null
+        // let config = null;
+        // //想要保存一个基本类型的话初始值为undefined
+        // // let web = undefined;
+        // let web = "";
+
+        //下面是undefined
+        // function show(name) {
+        //     console.log(name);
+        // }
+        // console.log(show());
+
+        // let a = 427;
+        // let b;
+        // console.log(typeof a);
+        // console.log(b);
+        // console.log(f);
+
+
+        function star(num = 5) {
+            // num = num || 10;
+            // if (num == undefined) {
+            //     num = 5;
+            // }
+            // console.log(num);
+            for (let i = 0; i < num; i++) {
+                document.write("帅");
+            }
+        };
+        star(9);
+        console.log(star(1));
+    </script>
+</body>
+
+</html>

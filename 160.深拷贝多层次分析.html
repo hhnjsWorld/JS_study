@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 小科普 */
+
+
+    /* 去非数组或者对象 */
+    /*判断啥呢,判断这个是否是数组 true  */
+    console.log([] instanceof Array);
+    console.log([] instanceof Object);
+    /* 演示 */
+    // function clone(object) {
+    //     /* 判断类型是否是数组或者对象 */
+    //     let res = object instanceof Array ? [] : {};
+    //     console.log(res);
+    // }
+
+    /* 数组索引构成 对象属性构成 如果这两个像结构一样的话 */
+    let a = ["大哥", "大嫂"];
+    let b = {
+        name1: "小姐",
+        name2: "小哥",
+    };
+    /* keys不是索引吗 */
+    // console.log(JSON.stringify(Object.keys(a), null, 2));
+    /* entries直接查看目录 */
+    console.log(JSON.stringify(Object.entries(a), null, 2));
+    /*  这里的key就是对象下对应的 'ID' 名字嘛 都是以键值的形式 */
+    console.log(JSON.stringify(Object.entries(b), null, 2));
+    /* 在两个共用一个内存地址的情况下 */
+    let obj = {
+        name: "胡海宁",
+        user: {
+            name: "hhn.com",
+        },
+    };
+    let hhn = {
+        name: obj.name,
+        user: obj.user,
+    };
+    /* 我现在用的是obj里面的内存地址 */
+    hhn.user.name = "胡海宁大神";
+    console.log(JSON.stringify(hhn, null, 2));
+
+    console.log("----↓深拷贝↓----");
+
+    /* 原来的对象加上属性值,我深靠背的目的很明确,就是床讲一个新对象不改变原对象里面的属性 */
+    let total = {
+        title: "卢本伟牛逼",
+        score: {
+            project: 90,
+        },
+        arr: []
+    };
+
+    // function copy(object) {
+    //     let res = {};
+    //     for (const key in object) {
+    //         /* 初始对象也变化了 */
+    //         /* 下面这个情况下并没有拷贝成功,都变化了，因为把对象赋值给res[key]了, 对象赋值的时候传递内存地址，还是共用一个*/
+    //         // res[key] = object[key];
+
+    //         /* 加上递归 + 判断的方法实现深拷贝 如果类型是object的话 */
+    //         console.log(object[key]);
+    //         res[key] =
+    //             typeof object[key] == "object" ? copy(object[key]) : object[key];
+    //     }
+    //     return res;
+    // }
+
+
+    /* for of法 */
+    /* 一个标准的递归 递归有结束的条件判断 避免死递归 */
+    function cos(object) {
+        let res = object instanceof Array ? [] : {};
+        for (const [k, v] of Object.entries(object)) {
+            res[k] = typeof v == "object" ? cos(v) : v;
+        }
+        return res
+    }
+
+    let hn = cos(total);
+    hn.title = "语文";
+    hn.score.project = 100;
+    hn.arr.push('深拷贝成功')
+
+    console.log("----total----", JSON.stringify(total, null, 2));
+    console.log("----hn----", JSON.stringify(hn, null, 2));
+
+    total.score.project = 100;
+    // console.log('----目前浅拷贝----', JSON.stringify(hn, null, 2));
+    // console.log('----目前浅拷贝----', JSON.stringify(total, null, 2));
+</script>
+
+</html>

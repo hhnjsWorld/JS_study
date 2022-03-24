@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 垃圾回收 */
+    let hhn = {
+        name: "胡海宁",
+    };
+    /* 内存地址被外面引用了两次 */
+    /* 空间变了 内存地址不变 */
+    let wlh = hhn;
+    let zjl = wlh;
+
+    let set = new WeakSet();
+    set.add(hhn);
+    hhn = null;
+    /* 删掉一个删除引用过后,还是有的 */
+    // wlh = null;
+
+    console.log(set);
+
+    /* 弱引用是指WeakSet */
+
+    let a = new Set([set]);
+    // console.log(a.size);
+    // setInterval(() => {
+    //     console.log(set);
+    // }, 1000);
+
+
+    console.log("-------------------");
+    let edc = {
+        name: "哈哈哈",
+    };
+    let edu = edc;
+    let sets = new WeakSet();
+    sets.add(edc);
+    edc = null;
+    edu = null;
+    setTimeout(() => {
+        console.log(sets);
+    }, 2000);
+
+    console.log(sets);
+
+
+    console.log("-------------------");
+    let adc = {
+        name: "呵呵",
+    };
+    let eduu = adc;
+    let setss = new WeakSet();
+    setss.add(adc);
+    adc = null;
+    eduu = null;
+
+
+    console.log(setss);
+
+
+
+    /* 总结weakSet特点就是保存对象数据 
+    以内是托引用类型,一些迭代方法 keys values
+    都用不了,操作DOM元素节点的时候 不用把DOM元素删掉过后
+    把WeakSet 里面的内容也删掉
+
+    */
+</script>
+
+</html>

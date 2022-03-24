@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    const user = {
+        name: "胡海宁",
+        age: "25",
+    };
+    user.lesson = "js";
+    console.log(user);
+    delete user.lesson;
+    console.log(user);
+
+    let arr = ["abc", "def"];
+    console.log(arr);
+    for (const [key, value] of Object.entries(arr)) {
+        console.log(key, value);
+    }
+
+
+    console.log(Object.getOwnPropertyDescriptor(user, 'name'));
+
+
+    /* 利用 Object.getOwnPropertyDescriptor 获得某个属性特征*/
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptor(user, 'name'), null, 2));
+    //     {
+    //   "value": "胡海宁",
+    //   "writable": true,
+    //   "enumerable": true,
+    //   "configurable": true
+    // }
+
+    /* 后的全部属性特征的话Object.getOwnPropertyDescriptors */
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptors(user), null, 2));
+</script>
+
+</html>

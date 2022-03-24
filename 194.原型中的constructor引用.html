@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 原型是个对象,只要是对象的话也就是说也会有自己的原型Constructor */
+    function User(name) {
+        this.name = name;
+    }
+    console.dir(User);
+    console.log(Function(User).prototype.__proto__ == Object.prototype);
+
+    /* constructor */
+    /*通过构造器找到 */
+    /* constructor找自己 */
+    console.log(User.prototype.constructor == User);
+    let lisi = new User.prototype.constructor('李四');
+    console.log(lisi);
+
+
+    /* 添加功能写法 */
+    function Own(name) {
+        this.name = name;
+    }
+    Own.prototype.show = function() {
+        console.log(this.name);
+    }
+    let zhangsan = new Own.prototype.constructor('张三')
+    zhangsan.show()
+
+
+    /* 一次性加多个 */
+    function Many(name) {
+        this.name = name;
+    }
+    Many.prototype = {
+        /* 不能没有constructor */
+        constructor: Many,
+        /* 没有这个show */
+        show() {
+            console.log(this.name);
+        }
+    }
+    let wangwu = new Many.prototype.constructor('王五')
+    console.log(wangwu);
+    wangwu.show()
+</script>
+
+</html>

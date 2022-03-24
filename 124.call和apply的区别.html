@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button>哈哈哈</button>
+    <button>呵呵呵</button>
+</body>
+<script>
+    /* 获取最大值 */
+    // console.log(Math.max(1, 2, 3, 5));
+
+    let arr = [11, 22, 33, 44, 55, 66, 77, 88];
+    console.log(Math.max(...arr)); //点语法可以
+    /* 通过Math的数学运算 */
+    console.log(Math.max.apply(Math, arr)); //apply第二个参数跟着数组
+
+
+    function show() {
+        alert(this.innerHTML);
+    }
+    let buttons = document.querySelectorAll("button");
+    buttons.forEach((element) => {
+        element.addEventListener("click", (event) => {
+            // console.log(this);
+            console.log(event.target);
+            /* call只想了对外的一个方法 */
+            // show.call(event.target)
+            show.apply(event.target);
+        });
+    });
+    //call apply
+    let lisi = {
+        name: "李四",
+    };
+    let zhangsan = {
+        name: "张三",
+    };
+
+    function User(web, url) {
+        console.log(web + url + this.name);
+    }
+    /* call apply  都是立刻执行*/
+    User.call(lisi, "胡海宁", "hhn.com"); //改变this指针的对象 ，后面跟的是我要传递的参数
+    User.apply(zhangsan, ["胡海宁", "hhnhhn.com"]); //改变this指针的对象,后面跟的是数组
+</script>
+
+</html>

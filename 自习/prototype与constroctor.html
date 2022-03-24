@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 押属性法 */
+    let hhn = {
+        name: '胡海宁'
+    };
+    let father = {
+        name: 'god',
+        show() {
+            return '父级包含你' + this.name
+        }
+    };
+    Object.setPrototypeOf(hhn, father);
+    console.log(hhn);
+    console.log(hhn.show());
+    console.log(father.show());
+    /*一般法new的方法 */
+    function Title() {
+        this.name = '许三多'
+    };
+
+    let own = new Title();
+    Title.prototype.show = function() {
+        console.log('多做几遍 ');
+    }
+    console.log(new Title);
+    console.log(Title.prototype.constructor == Title);
+    console.log(own.__proto__.constructor == Title.prototype.constructor);
+    console.log(own.__proto__.show.prototype.constructor == Title.prototype.constructor.prototype.show);
+    console.log(own);
+</script>
+
+</html>

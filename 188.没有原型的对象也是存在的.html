@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let own = {
+        name: '大神'
+    };
+    /* 判断是否拥有 */
+    console.log(own.hasOwnProperty('name')); //true
+    console.log(own);
+
+    /* 完全的数据字典对象 可以创建一个没有原型的对象 */
+    let hhn = Object.create(null, {
+        name: {
+            value: '胡海宁'
+        }
+    })
+    console.log(Object.getPrototypeOf(hhn)); //null
+</script>
+
+</html>

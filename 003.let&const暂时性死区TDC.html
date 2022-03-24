@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log(hhn);
+        // var hhn = "hhn.com";
+
+        //暂时性死区
+        //用let声明的必须在声明之后再来使用，不能在声明之前使用
+        // console.log(web);
+        // let web = " hhn.com";
+
+        // let web = " hhn.com";
+
+        // function func() {
+        //     //如果函数体内没有声明变量,去上面找
+        //     //必须写在之前
+        //     let web = " hhnhhn.com";
+        //     console.log(web);
+
+        // }
+
+        function run(a = b, b = 3) {}
+        run();
+    </script>
+</body>
+
+</html>

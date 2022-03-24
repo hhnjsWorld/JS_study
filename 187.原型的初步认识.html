@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    /* 原型理解为家谱 往上的层级 一层一层的 */
+    // let arr = ['胡海宁'];
+    // console.log(arr.concat('大神'));
+    let hhn = {};
+    console.log(Object.getPrototypeOf(hhn));
+    let own = {};
+    /* 判断咱俩是不是同一个 */
+    console.log(Object.getPrototypeOf(hhn) == Object.getPrototypeOf(own));
+</script>
+
+</html>

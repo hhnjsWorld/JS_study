@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* class面向对象的过程 */
+    class Cache {
+        static data = {};
+        /* 相当于设定好名字-数据 
+        然后返回这个等于数据的名字
+        */
+        static set(name, value) {
+            return (this.data[name] = value);
+        }
+        static get(name) {
+            return this.data[name];
+        }
+    }
+    // Cache.set('hhn', 'hhn.com')
+    // console.log(Cache.get('hhn'));
+    /*  */
+    let user = {
+        name: "华为",
+        desc: "用户",
+        key: Symbol('专享用户vip')
+    };
+    let phone = {
+        name: "华为",
+        desc: 'Mate30pro',
+        key: Symbol('现在只要￥5999')
+    };
+    /* 如果用户和物品名称相同这时候我就相当于给我的对象里key打上Symbol的专属标签取认证 */
+    Cache.set(user.key, user);
+    Cache.set(phone.key, phone)
+    console.log(Cache.get(phone.key));
+</script>
+
+</html>

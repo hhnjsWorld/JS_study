@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* 没有声明名字  匿名函数 */
+    /* 匿名函数的话是没有提升的 */
+    let hhn = function() {
+        console.log("胡海宁");
+    };
+    hhn();
+
+    /* 声明一个具名函数的话 */
+    /* 自动解析自动提升 */
+    hhns();
+
+    function hhns() {
+        console.log("胡海宁大神");
+    }
+    /* 函数是一个对象类型 */
+    console.log(hhn instanceof Object);
+    /* 函数引用类型的地址的指针传递 
+    引用类型赋值 */
+    let hhncom = hhn;
+    hhncom();
+
+    console.log("----------------------");
+
+    step();
+    /* 具名可以向上拿取 */
+    function step() {
+        console.log("hhnhhn");
+    }
+    /* 全局看到了 */
+    var step = function(name) {
+        console.log(name);
+    };
+
+    step("胡海宁在此");
+
+    console.log("----------------------");
+
+    function sum(...args) {
+        /* 我接受到一个数据转为数组了 */
+        // console.log(args);
+        return args.reduce((a, b) => {
+            return a + b;
+        }, 0);
+    }
+    sum(1, 2, 3, 4, 5, 6, 7);
+    console.log(sum(1, 2, 3, 4, 5, 6, 7));
+</script>
+
+</html>

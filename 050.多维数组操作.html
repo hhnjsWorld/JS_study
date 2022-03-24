@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // new Array
+        //数组来存储
+        let array = ["huhaining", ["hhn", "birth0427"]];
+        console.log(array[1]);
+        console.log(array[1][1]);
+
+        //对象来存储
+        let hhn = {
+            looks: "shuaige",
+            birth: "0427",
+            boby: "football",
+        };
+        console.log(hhn.birth);
+        console.table(hhn);
+
+        let Vue = [{
+            props: "父传子"
+        }, {
+            $emit: "子传父",
+            value: '回调'
+        }, {
+            eventbus: '中央控制总线'
+        }]
+        console.log(Vue[1]);
+        console.table(Vue);
+
+
+        //我就是开辟空间然后再填值
+
+        let name = [3, 4, 5, 6, 7];
+        //重新定义的在前
+        call = name;
+        call[1] = "5"
+        console.log(name);
+        console.log(call);
+    </script>
+</body>
+
+</html>

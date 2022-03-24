@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //函数当中可以访问到全局的变量的
+
+        // // let/const web = "hhn";
+        // var web = "hhn";
+
+        // function show() {
+        //     console.log(web);
+        // }
+        // show();
+        // console.log(web);
+
+        //let/const/var 都是有公共和私有空间
+        // var web = "hhnhhn";
+
+        // function show() {
+        //     var web = "hhn";
+        //     console.log(web);
+        // }
+        // show();
+        // console.log(web);
+
+        //    let/const/var 都是有公共和私有空间
+        const web = "hhnhhn";
+
+        function show() {
+            const web = "hhn";
+            // console.log(web);
+
+            function run() {
+                var web = "run .. web";
+                console.log(web);
+            }
+            run();
+            console.log(web);
+        }
+        show();
+        console.log(web);
+    </script>
+</body>
+
+</html>

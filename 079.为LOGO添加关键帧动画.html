@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        /* flex-direction: column; */
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        background-color: aqua;
+    }
+    
+    div {
+        cursor: pointer;
+        letter-spacing: 20px;
+        font-size: 5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: lightgoldenrodyellow;
+    }
+    
+    div>span {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .color {
+        /* 动画名字 */
+        animation-name: color;
+        /* 时间 */
+        animation-duration: 1s;
+        /* 重复次数 */
+        animation-iteration-count: 2;
+        /* 线性动画 */
+        animation-timing-function: linear;
+        /* 来回进行切换 */
+        animation-duration: alternate;
+    }
+    
+    @keyframes color {
+        50% {
+            color: yellow;
+            transform: scale(2);
+        }
+        to {
+            color: green;
+            transform: scale(0.5);
+        }
+    }
+</style>
+
+<body>
+
+    <div>我的渲染</div>
+
+</body>
+
+<script>
+    /* js写样式 */
+    const div = document.querySelector("div");
+    /* 得到文本内容 */
+    // console.log([...div.textContent]);//展开语法确定数组元素
+    [...div.textContent].reduce(function(pre, cur, index) {
+        pre == index && (div.innerHTML = "");
+        let span = document.createElement("span");
+        span.innerHTML = cur;
+        div.appendChild(span);
+        // console.log(pre, cur, index);
+        span.addEventListener("mouseover", function() {
+            this.classList.add("color");
+        });
+        span.addEventListener("animationend", function() {
+            this.classList.remove("color");
+        });
+    }, 0);
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div desc="hhnCom">网站</div>
+
+    <div desc="hhn">开发人员</div>
+</body>
+<script>
+    let divs = document.querySelectorAll("div");
+    divs.forEach((item) => {
+
+        // console.log(item);
+        let desc = item.getAttribute("desc")
+        let memoryLeakA = '内存泄露';
+        let memoryLeakB = 'null';
+        item.addEventListener("click", () => {
+            // console.log(this);
+            /* getAttribute 花去属性里面的值 */
+            console.log(desc);
+            console.log(item);
+            console.log(memoryLeakA);
+            console.log(memoryLeakB);
+        });
+        memoryLeakA = (null + 'A解决内存泄露，减少闭包里带来冗余的数据量');
+        memoryLeakB = ('B存在内存泄露')
+            /* 在外部定义一个null就行了 写在下面 */
+        item = null;
+    });
+</script>
+
+</html>

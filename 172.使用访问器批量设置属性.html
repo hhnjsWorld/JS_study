@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    "use strict";
+    const web = {
+        name: '胡海宁',
+        url: 'hhn.com',
+        get site() {
+            return `${this.name}的网址是${this.url}`
+        },
+        set site(value) {
+            console.log(value);
+            [this.name, this.url] = value.split('=>')
+        }
+    };
+    //如果想设置批量的话如上
+    // web.name = '开源产品';
+    web.site = '开源产品=>www.hhnhhn.com'
+
+    // web.url = 'www.hhn.com';
+    console.log(web.site);
+</script>
+
+</html>

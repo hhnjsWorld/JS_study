@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击跟随鼠标</title>
+    <style>
+        #box img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./139.猫咪拳.gif" alt="" />
+    </div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    var img = box.children[0];
+    document.onmousemove = function(event) {
+            //event是位置
+            // console.log(event);
+            var event = event || window.event;
+            // console.log(event.clientX,event.clientY);
+            targetX = event.clientX - img.offsetWidth / 2;
+            targetY = event.clientY - img.offsetHeight / 2;
+            //防止物体部分在可视区域外,目前仅针对左上，右下未解决
+            if (targetX <= img.offsetWidth / 2) {
+                targetX = 0;
+            }
+            if (targetY <= img.offsetHeight / 2) {
+                targetY = 0;
+            }
+        }
+        //减速运动
+    var leaderX = 0,
+        leaderY = 0,
+        targetX = 0,
+        targetY = 0;
+    setInterval(function() {
+        leaderX = leaderX + (targetX - leaderX) / 10;
+        leaderY = leaderY + (targetY - leaderY) / 10;
+        img.style.top = leaderY + 'px';
+        img.style.left = leaderX + 'px';
+    }, 30);
+</script>
+
+</html>

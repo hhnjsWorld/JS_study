@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /*  */
+    let symbol = Symbol("这是一个Symbol类型");
+    let hhn = {
+        name: "胡海宁",
+        /* 去上面取到 */
+        [symbol]: Symbol("标签了唯一性"),
+    };
+    console.log(hhn);
+    /* 注：forin或者 forof都无法遍历到Symbol */
+    // for (const key in object) {
+    //     console.log(key);
+    // }
+    // for (const key of object.keys(hhn)) {
+    //     console.log(key);
+    // }
+    /*  如果想遍历Symbol属性使用 Object.getOwnPropertySymbols*/
+    for (const key of Object.getOwnPropertySymbols(hhn)) {
+        console.log(key);
+    }
+    /* 遍历所有属性使用Reflect.ownKeys*/
+    for (const key of Reflect.ownKeys(hhn)) {
+        console.log(key);
+    }
+    let site = Symbol("这是一个Symbol");
+
+    class User {
+        constructor(name) {
+                this.name = name;
+                this[site] = "我的名字是";
+            }
+            /* 写上一个方法 */
+        getName() {
+            return `${this[site]}${this.name}`;
+        }
+    }
+    let hhnA = new User("胡海宁A");
+    console.log(hhnA.getName());
+    for (const key in hhnA) {
+        console.log(key);
+    }
+</script>
+
+</html>

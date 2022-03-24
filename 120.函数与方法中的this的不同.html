@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    //this
+    /* 在函数中使用this的状态 */
+    let hhn = {
+        name: "胡海宁",
+        show: function() {
+            /* this 现在指的是 当前对象引用 */
+            return this.name;
+        },
+    };
+    console.log(hhn.show());
+    /* 全局环境中 this就是window */
+    console.log(this == window); //true
+    /*  */
+    console.log(this == hhn); //false
+    // console.log(window);
+
+    /*  */
+    let hhnA = {
+        name: "胡海宁小神",
+        show: function() {
+            /* this 现在指的是 当前对象引用 */
+            return this.name;
+        },
+    };
+    console.log(hhnA.show());
+
+    /* 函数里面的函数是 window */
+    name = "这是window的name";
+    let hhnB = {
+        site: "胡海宁大神",
+        show: function() {
+            console.log(this.site);
+            let _that = this;
+
+            function render() {
+                // let _that = this;
+                let ace = _that.site;
+                console.log(`%c ${ace} 我不被 _that 改变this指针的话我就指向window了`, 'color:red');
+
+                let num = 1;
+
+                function son() {
+
+                    console.log(++num);
+                    console.log('%c哈哈', 'color:purple;font-size:19px');
+                }
+                son()
+
+
+            }
+            /* this 现在指的是 当前对象引用 */
+            // return this.name;
+            render();
+        },
+    };
+    console.log(hhnB.show());
+
+
+    /*  */
+    shits = "翔太";
+
+    function User(gaga) {
+        /* 这里就是传的参 */
+        this.exin = gaga;
+        this.shit = window.shits;
+        console.log(gaga);
+        this.show = function() {
+            /* 这个this指的就是构造函数 */
+            console.log(this);
+            console.log(this.exin + 'exin');
+            console.log(this.shit);
+            return this.shit;
+        };
+    }
+    let eat = new User("吃狗屎");
+    // console.log([eat]); // 对象 吃狗屎
+    console.log(eat.show()); // 字符串吃狗屎
+</script>
+
+</html>

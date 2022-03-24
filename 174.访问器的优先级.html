@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'use strict';
+
+    //Symbol()打标识代表唯一性
+    const DATA = Symbol();
+    const user = {
+        // name: '胡海宁',
+        [DATA]: {
+            name
+        },
+        age: 27,
+
+        /* set get构成的访问器 */
+        /* 访问器的优先级高于普通的操作方式 */
+        set name(value) {
+            this[DATA].name = value;
+        },
+        get name() {
+            return this[DATA].name;
+        }
+    };
+    user.name = 'hhn';
+    // user.data.name = '大神';
+
+
+    /* Symbol()为了保护属性,在外部不能用data.name修改 */
+    /* 使用这种方式封闭起来 */
+    console.log(user[Symbol()]);
+</script>
+
+</html>

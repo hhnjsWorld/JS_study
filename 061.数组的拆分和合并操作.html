@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "hhn,huhaining";
+        // console.log(str);
+        let hn = str.split(",");
+        console.log(hn);
+        console.log(hn.join("-"));
+
+        let hhn = ["shuaige", "yyds"];
+        let gy = [0, 8, 1, 6].toString().split(",");
+        hhn = hhn.concat(gy, hn);
+        console.log(Object(hhn.join("-")));
+        //str注入展开运算符
+        let js = [...str, ...hhn].toString().split(",").join("");
+        console.log(js);
+        //迁移赋值
+        let scc = [1, 2, 3, 4];
+        console.log(scc.copyWithin(2, 0, 2));
+    </script>
+</body>
+
+</html>

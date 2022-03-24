@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //new 可以用于Number Boolean  String
+        // const date = new Date();
+        // console.log(typeof date);
+        // console.log(date * 1);
+
+        // const hhn = Date();
+        // console.log(typeof hhn);
+        // console.log(date * 1);
+        const start = Date.now();
+        for (let i = 0; i < 200000000; i++) {}
+        const end = Date.now();
+        console.log((end - start) / 1000 + "秒");
+
+        // console.time('for');
+        // for (let i = 0; i < 200000000; i++) {}
+        // console.timeEnd('for');
+
+        //查月份
+        // const date = new Date("1996-04-27 16:27:00");
+        const date = new Date(1996, 4, 27, 16, 59, 20);
+        console.log(date);
+        console.log(date.getMonth());
+
+        //...数组转对象，使其为独立个体
+        const param = [1996, 4, 27, 16, 59, 20];
+        const data = new Date(...param);
+        console.log(date);
+    </script>
+</body>
+
+</html>

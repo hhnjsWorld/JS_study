@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+<script>
+    /* apply  call bind */
+    //改变this的指向
+    /* 构造函数 生产 建筑 */
+    function User(namehaha) {
+        /* this原来是一个空的 通过构造赋予出对象 */
+        this.names = namehaha;
+        return {
+            a: '我从狗蛋变成鸭蛋'
+        }
+    }
+    let hhn = new User('狗蛋');
+    console.log(hhn);
+    let hhncom = {
+        url: 'hhn.com'
+    }
+    User.call(hhncom, '开源系统')
+    console.log(hhncom);
+    /* this是可以被改变的 */
+</script>
+
+</html>

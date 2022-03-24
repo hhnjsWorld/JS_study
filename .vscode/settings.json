@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.port": 5503,
+    "livePreview.defaultPreviewPath": "/172.使用访问器批量设置属性.html",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#550650",
+        "titleBar.activeBackground": "#770970",
+        "titleBar.activeForeground": "#FFF9FE"
+    }
+}

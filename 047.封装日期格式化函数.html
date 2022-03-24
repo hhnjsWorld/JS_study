@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const date = new Date("1996-04-27 18:22:29");
+        //     console.log(date);
+        //     console.log(date.getFullYear());
+        //     console.log(date.getMonth() + 1);
+        //     console.log(date.getDate());
+        //     console.log(date.getHours());
+        //     console.log(date.getMinutes());
+        //     console.log(date.getSeconds());
+
+        //     const formatDate = `${date.getFullYear()}'='${
+        //     date.getMonth() + 1
+        //   }"--"${date.getDate()}'*'${date.getHours()}'*'${date.getMinutes()}'*'${date.getSeconds()}
+        //     `;
+        //     console.log(formatDate);
+
+        //封装
+        const dateFormat = (date, format = "YYYY-MM-DD HH:mm:ss") => {
+            const config = {
+                YYYY: date.getFullYear(),
+                MM: date.getMonth() + 1,
+                DD: date.getDate(),
+                HH: date.getHours(),
+                mm: date.getMinutes(),
+                ss: date.getSeconds(),
+            };
+            for (const key in config) {
+                format = format.replace(key, config[key]);
+            }
+            return format;
+        };
+        console.log(dateFormat(date, "YYYY-MM-DD"));
+    </script>
+</body>
+
+</html>
