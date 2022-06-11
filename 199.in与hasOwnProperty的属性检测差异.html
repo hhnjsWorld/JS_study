@@ -13,24 +13,34 @@
 </body>
 <script>
     let a = {
-        url: "hhn"
+        url: "hhn",
+        baga: "hhn"
     }
     let b = {
         name: "胡海宁"
     }
 
     /* true */
-    console.log("url" in a);
-
+    /* 属性是否在里面 */
+    console.log("url" in a); 
+    console.log("baga" in a); 
     /* false */
     console.log("web" in a);
 
     /* true */
     Object.prototype.web = 'hhn.com'
+    /* in检测当前对象和原型链*/
     console.log("web" in a);
 
+    /* true */
     Object.setPrototypeOf(a, b)
     console.log('name' in a);
+
+    for (const key in a) {
+        if (a.hasOwnProperty(key)) {
+              console.log(key);      
+        }
+    }
 </script>
 
 </html>

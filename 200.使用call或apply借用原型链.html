@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let hd = {
+        data: [1, 2, 3,69, 4, 5]
+    };
+    /* 利用hd做排序 */
+    Object.setPrototypeOf(hd, {
+        /* 调取最大数 */
+        max(data) {
+
+            /* 大小排序 */
+            // return this.data.sort((a, b) => b - a)[0]
+            return data.sort((a, b) => b - a)[0]
+        }
+    });
+    console.log(hd.max(hd.data));
+
+    /* 举例一些分数,接其他对象中的原型链的方法做事情 */
+    let hhn = {
+        lessons: {
+            js: 100,
+            java: 99,
+            nodejs: 98,
+            css: 97
+        },
+        /* get拿出属性 */
+        // get data(){
+        
+        //     return Object.values(this.lessons)
+
+        // }
+    };
+
+    /* 借用了 其他对象原型链中的方法实现了问题 */
+    console.log(hd.max.call(null,Object.values(hhn.lessons)))
+ 
+
+   
+
+
+    
+</script>
+
+</html>
