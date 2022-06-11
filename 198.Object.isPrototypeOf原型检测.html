@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* Object.prototype = b.__proto__ */
+    let a = {}
+    let b = {}
+    let c = {}
+
+    /* 检测一个对象是否在另外一个而对象的原型链当中 */
+    console.log(b.isPrototypeOf(a)); //false
+    console.log(Object.prototype.isPrototypeOf(a)); //false
+    console.log(b.__proto__.isPrototypeOf(a)); //true 判断变量的原型属性
+    console.log(Object.prototype = b.__proto__);
+
+    /* 设置了b属于a了之后 你会看到 原型链当中的归属关系 并等于true */
+    console.log(Object.setPrototypeOf(a, b));
+    console.log(b.isPrototypeOf(a)); //true
+
+    /* 设置了b属于a了之后 再设置c属于b 会看到 你会看到 原型链当中的归属关系 并等于true */
+    console.log(Object.setPrototypeOf(b, c));
+    console.log(c.isPrototypeOf(a)); //true
+    console.log(c.isPrototypeOf(b)); //true
+</script>
+
+</html>

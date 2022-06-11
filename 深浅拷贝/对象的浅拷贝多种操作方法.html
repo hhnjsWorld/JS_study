@@ -18,22 +18,22 @@
     let man = hhn;
     /* 修改了 */
     man.name = "原来的";
-    console.log(man);
-
+    console.log(man, 'man');
+    console.log(hhn, 'hhn');
     let mans = {
         name: hhn.name,
     };
-    console.log(mans); //我变了
+    console.log(mans, 'mans'); //我变了
 
     let human = mans //关键就是在于给空间 值就能变
         // console.log(hhn);
     let news = (human.name = "我也会变")
         // console.log(hhn);
-    console.log(news);
+    console.log(news, 'news');
     // console.log(hhn);
-    console.log([human]);
+    console.log([human], '[human]');
     /* 开辟空间 给空间 独享空间才会变 原来的是不会被改变的 */
-    console.log(hhn);
+    console.log(hhn, 'hhn');
 
     /* 内存地址1 */
     let memoryAddressOne = {
@@ -45,18 +45,19 @@
     /* 浅拷贝流程 */
     /* 如果涉及到多个对象合并的话用 Object.assign()浅拷贝 */
     let memoryAddressTwo = Object.assign({}, memoryAddressOne);
-    console.log(memoryAddressTwo);
+    console.log(memoryAddressTwo, '2');
     memoryAddressTwo.hostA = "Object.assign()浅拷贝替换"; //这里替换了一个属性
     memoryAddressTwo.name = "Object.assign()里的添加"; //这里添加了一个属性
     memoryAddressTwo.hostB = "Object.assign()里的替换如上"; //这里替换了一个属性
-    console.log(memoryAddressOne);
+    console.log(memoryAddressOne, '1');
 
 
     /* 展开语法浅拷贝 */
     /* 只是单纯复制对象的话展开语法 */
     let memoryAddressThree = {...memoryAddressOne
     };
-    console.log(memoryAddressThree);
+    console.log(memoryAddressThree, '3');
+    console.log(memoryAddressOne, '1');
     memoryAddressThree.name = '展开语法浅拷贝' //这里添加了一个属性 
 
 
@@ -83,8 +84,8 @@
 
     }
     /* 给空对象插值的话 空对象 赋予了值 原对象不变 */
-    console.log(memoryAddressOne); //这是不变的
-    console.log(memoryAddressFour);
+    console.log(memoryAddressOne, '1'); //这是不变的
+    console.log(memoryAddressFour, '4');
 
     /* 下面这样做 看的就很清晰 */
     // for (const [item, value] of Object.entries(memoryAddressOne)) {

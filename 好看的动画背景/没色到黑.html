@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #cccccc;
+            /* margin-top: 100px; */
+            /* margin-left: 100px; */
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            /*获取元素*/
+            // var myCanvas = document.querySelector('#myCanvas');
+            /*获取绘图工具*/
+            var ctx = myCanvas.getContext('2d');
+
+            /*绘画第一条虚线*/
+            /*  ctx.moveTo(100, 100.5);
+             ctx.lineTo(300, 100.5);
+             ctx.lineWidth = 30; // 设置线条的宽度
+             ctx.strokeStyle = "rgb(0,0,0)"; // 设置线条为黑色
+             ctx.stroke(); */
+
+            /*绘制 0 - 255 个点，组成渐变色线条*/
+            for (var i = 0; i < 255; i++) {
+                ctx.beginPath(); // 开启路径，设置不同的样式
+                ctx.moveTo(100 + i, 300.5);
+                ctx.lineTo(101 + i, 300.5);
+                ctx.lineWidth = 20; // 设置线条的宽度
+                ctx.strokeStyle = "rgb(" + i + "," + i + "," + i + ")"; // 设置每个点的颜色，从 0 - 255，从黑到白
+                ctx.stroke();
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+</body>
+
+</html>

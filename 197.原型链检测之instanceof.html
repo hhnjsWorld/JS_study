@@ -26,23 +26,30 @@
 
     // a.local()
 
-    function A() {
+    // function A() {
 
-    }
-    let a = new A()
-    console.log(a instanceof A);
-    /* 上下画等号了 */
-    console.log(a.__proto__ == A.prototype);
-    console.log(a instanceof Object);
-
-    // function A() {}
-
-    // function B() {}
-    // let b = new B();
-    // A.prototype = b;
-    // let a = new A();
+    // }
+    // let a = new A()
+    // console.log(a instanceof A);
+    // /* 上下画等号了 */
+    // console.log(a.__proto__ == A.prototype);
     // console.log(a instanceof Object);
-    // console.log(a instanceof B);
+
+    function A() {}
+
+    function B() {}
+
+    function C() {}
+    let c = new C();
+    B.prototype = c;
+    let b = new B();
+    A.prototype = b;
+    let a = new A();
+    //A.prototype
+    console.log(a instanceof Object);
+    console.log(a instanceof A);
+    console.log(a instanceof B);
+    console.log(a instanceof C);
 </script>
 
 </html>
