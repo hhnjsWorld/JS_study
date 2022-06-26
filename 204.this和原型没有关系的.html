@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let hhn = {
+        name: '大哥大',
+        show() {
+            console.log(this.name);
+        }
+    }
+    let User = {
+        name: '小哥'
+    }
+
+    /* 这时的User指向的是hhn俩面的'大哥大' */
+    Object.setPrototypeOf(hhn, User) //User塞进hhn的
+    console.log(hhn);
+    /* 大哥大 */
+    hhn.show()
+</script>
+
+</html>
